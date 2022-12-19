@@ -14,6 +14,10 @@ def hello():
 def index():
     return render_template("index.html")
 
+@app.route("/game")
+def index():
+    return render_template("TaskProject.html")
+
 #おまじない
 if __name__ == "__main__":
     app.run(debug=True)
