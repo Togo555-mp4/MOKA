@@ -15,7 +15,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/game")
-def index():
+def game():
     return render_template("TaskProject.html")
 
 #おまじない
