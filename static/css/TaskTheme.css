@@ -94,4 +94,5 @@ video{width:960px; height:540px; object-fit: contain; box-sizing: border-box; po
   position:absolute;
   top:580px;
   left:1000px;
+  overflow: scroll;
 }

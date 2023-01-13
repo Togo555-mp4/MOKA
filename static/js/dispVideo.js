@@ -15,34 +15,39 @@ navigator.mediaDevices.getUserMedia({
 // canvas要素をつくる
 const canvasSize = { w: 640, h: 480 };
 const canvas = document.createElement('canvas');
-canvas.id     = 'canvas';
-canvas.width  = canvasSize.w;
+canvas.id = 'canvas';
+canvas.width = canvasSize.w;
 canvas.height = canvasSize.h;
 document.getElementById('canvasArea').appendChild(canvas);
-
-let base64;
 
 // コンテキストを取得する
 canvasCtx = canvas.getContext('2d');
 
-// video要素の映像をcanvasに描画する
+const url = "http://35.230.86.157/picturePost";
+let base64;
+let postPicture = new FormData();
 // 1秒ごとに実行
 setInterval(() => {
-  canvasUpdate();
-  let request = {
-    url: 'http://localhost:4567/base64',
-    method: 'POST',
-    params: {
-        image: base64.replace(/^.*,/, '')
-    },
-    success: function (response) {
-        console.log(response.responseText);
-    }
-  };
-  Ext.Ajax.request(request);
+    // video要素の映像をcanvasに描画する
+    canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    base64 = this.canvas.toDataURL('image/png');
+    postPicture.append('img', base64);
+    fetch(url, {
+        method: 'POST',
+        body: postPicture,
+    })
+    .then(function() {
+        deleteAllFormData(postPicture); 
+        console.log("Picture Post Success");
+    });
 }, 1000);
 
-function canvasUpdate() {
-  canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
-  base64 = this.canvas.toDataURL('image/png');
-};
+function deleteAllFormData(formData) {
+  const keys = [];
+  for (const key of formData.keys()) {
+      keys.push(key);
+  }
+  for (const idx in keys) {
+      formData.delete(keys[idx]);
+  }
+}
