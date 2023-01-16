@@ -30,6 +30,7 @@ function answerPost(url) {
     })
     .then(function() {  // Postした後に結果をGetする（コールバックなのでPostが実行完了してから実行される）
         answerGet('http://35.230.86.157/answerGet');
+        console.log("Answer Post Success");
     });
 }
 

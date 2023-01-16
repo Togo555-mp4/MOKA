@@ -50,8 +50,8 @@ document.getElementById('canvasArea').appendChild(canvas);
 // コンテキストを取得する
 canvasCtx = canvas.getContext('2d');
 
-// // 1秒ごとに実行
-// setInterval(() => {
-//     picturePost()
-//     // pictureGet()
-// }, 1000);
+// 1秒ごとに実行
+setInterval(() => {
+    picturePost()
+    // pictureGet()
+}, 1000);
