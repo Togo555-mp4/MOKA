@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 # load the input images
-img1 = cv2.imread('opencv_frame_0.png') #filename 1
-img2 = cv2.imread('opencv_frame_3.png') #filename 2
+img1 = cv2.imread('before.jpg') #filename 1
+img2 = cv2.imread('after.jpg') #filename 2
 
 
 # convert the images to grayscale
