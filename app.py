@@ -1,8 +1,8 @@
 # Flaskとrender_template（HTMLを表示させるための関数）をインポート
 from flask import Flask, render_template, request
 # MYSQLのインポート
-import MySQLdb
-#base64のインポート
+# import MySQLdb
+# base64のインポート
 import base64
 
 # Flaskオブジェクトの生成
