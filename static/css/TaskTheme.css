@@ -1,7 +1,9 @@
 @charset "UTF-8";
-body{background-color:#00BFFF;}
-h2{margin:15px; background-color:white; border:black solid 2px; width:600px; height:150px;}
-h3{border:black solid 2px; width:600px; height:200px;}
+body{
+  background-color:#00BFFF;
+  font-size: 40px;
+  font-family: "HGP創英角ﾎﾟｯﾌﾟ体";
+}
 img{width:960px; height:540px; object-fit: contain; box-sizing: border-box; position:relative;}
 video{width:960px; height:540px; object-fit: contain; box-sizing: border-box; position:relative;}
 
@@ -18,37 +20,37 @@ video{width:960px; height:540px; object-fit: contain; box-sizing: border-box; po
 }
 
 #Area_AnsInput{
-  border:black solid 2px;
+  border:black solid 3px;
   margin:15px 5px 5px 15px;
   background-color:white;
   width:960px;
   height:150px;
-  font-size: 30px;
+  text-align: center;
 }
 
-#pose{
+.pose{
   margin:5px 5px;
   font-weight:800;
-  left:auto;
-  right:auto;
 }
 
 #writeArea{
   width: 80%;
   height:80px; 
-  border:black solid 2px;
-  font-size: 30px;
+  border:black solid 3px;
+  font-family: "HGP創英角ﾎﾟｯﾌﾟ体";
+  font-size: 40px;
 }
 
-#submitArea{
+#btn{
   width: 15%;
   height:80px;
-  border:black solid 2px;
-  font-size: 30px;
+  border:black solid 3px;
+  font-family: "HGP創英角ﾎﾟｯﾌﾟ体";
+  font-size: 40px;
 }
 
 #Area_Score{
-  border:black solid 2px;
+  border:black solid 3px;
   width:500px;
   height:200px;
   background-color:white;
@@ -56,6 +58,13 @@ video{width:960px; height:540px; object-fit: contain; box-sizing: border-box; po
   top:15px;
   left:1000px;
   font-weight:800;
+  text-align: center;
+}
+
+#userPoint{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 60px;
 }
 
 #Area_Countdown{
@@ -77,19 +86,22 @@ video{width:960px; height:540px; object-fit: contain; box-sizing: border-box; po
 #Area_odai{
   width:500px;
   height:70px;
-  border:black solid 2px;
+  border:black solid 3px;
   background-color:white;
   position:absolute;
   top:490px;
   left:1000px;
   font-weight:800;
-  font-size: 30px;
+}
+
+#odaiTitle{
+  margin-top:15px;
 }
 
 #Area_AnsOutput{
   width:500px;
   height:150px;
-  border:black solid 2px;
+  border:black solid 3px;
   background-color:white;
   position:absolute;
   top:580px;

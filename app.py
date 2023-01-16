@@ -79,7 +79,7 @@ def answerPost():
         user='root',
         passwd='password',
         host='IP_address',
-        db='db_name'
+        db='testing'
     )
     cur = answerData.cursor()
     cur.execute("INSERT INTO テーブル名 VALUES " + answer)

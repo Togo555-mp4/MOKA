@@ -26,6 +26,7 @@ canvasCtx = canvas.getContext('2d');
 const url = "http://35.230.86.157/picturePost";
 let base64;
 let postPicture = new FormData();
+
 // 1秒ごとに実行
 setInterval(() => {
     // video要素の映像をcanvasに描画する

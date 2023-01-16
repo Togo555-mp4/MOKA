@@ -17,19 +17,20 @@
 
   <!-- 獲得した点数の表示 -->
   <div id="Area_Score">
-    <p>獲得ポイント</p>
-    <p>Player1 : --- pt</p>
-    <p>Player2 : --- pt</p>
+    <div class="pose">獲得ポイント</div>
+    <div id="userPoint">0</div>
+    <div>pt</div>
   </div>
 
   <!-- 解答の入力 -->
   <div id="Area_AnsInput">
-    <div id="pose">このポーズが何か書こう！</div>
-    <form action="/" method="POST" enctype="multipart/form-data">
-      <input type="text" id="writeArea" placeholder="コメント" name="answer">
-      <input type="submit" id="submitArea" value="送信" onClick="answerPost('http://35.230.86.157/answerPost')">
+    <div class="pose">このポーズが何か書こう！</div>
+    <form id="answerForm">
+      <input type="text" id="writeArea" placeholder="ここに記入してね" name="answer">
+      <input type="button" id="btn" value="送信" onClick="answerPost('http://35.230.86.157/answerPost')">
     </form>
   </div>
+  <script src="C:\Users\5t1ng\システム\classSystem\MOKA\static\js\answer.js"></script>
 
   <!--カウントダウン -->
   <div id="Area_Countdown">
@@ -41,13 +42,12 @@
 
   <!-- お題の表示 -->
   <div id="Area_odai">
-    お題：
+    <div id="odaiTitle">お題：</div>
   </div>
 
   <!-- 入力された他の解答の表示 -->
   <div id="Area_AnsOutput"></div>
-
-
+  
 </body>
 
 </html>
