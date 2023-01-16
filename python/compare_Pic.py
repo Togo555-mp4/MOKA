@@ -1,10 +1,10 @@
 import cv2
 import numpy as np
 
-def comparePic(img1, img2):
+def comparePic(image1, image2):
    # load the input images
-   img1 = cv2.imread('before.jpg') #filename 1
-   img2 = cv2.imread('after.jpg') #filename 2
+   img1 = cv2.imread(image1) #filename 1
+   img2 = cv2.imread(image2) #filename 2
 
    # convert the images to grayscale
    img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
