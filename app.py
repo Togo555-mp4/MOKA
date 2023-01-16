@@ -70,6 +70,7 @@ def answerGet():  # 関数名は重複していなければなんでもよい
     cur.close()
     answerData.close()
     result = ""
+    return result
 
 #回答データのpost	
 @app.route('/answerPost', methods=['POST'])

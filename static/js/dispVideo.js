@@ -1,3 +1,31 @@
+const postUrl = "http://35.230.86.157/picturePost";
+const pictureGetUrl = "http://35.230.86.157/pictureGet"
+
+function picturePost(){
+    // video要素の映像をcanvasに描画する
+    canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    let base64 = this.canvas.toDataURL('image/png');;
+    let postPicture = new FormData();
+    postPicture.append('img', base64);
+    fetch(postUrl, {
+        method: 'POST',
+        body: postPicture,
+    })
+    .then(function() {
+        console.log("Picture Post Success");
+    });
+}
+
+function pictureGet(){
+    fetch(pictureGetUrl)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(text) {
+
+    });
+}
+
 //動画の描画
 const video = document.createElement('video');
 video.id = 'video';
@@ -19,36 +47,11 @@ canvas.id = 'canvas';
 canvas.width = canvasSize.w;
 canvas.height = canvasSize.h;
 document.getElementById('canvasArea').appendChild(canvas);
-
 // コンテキストを取得する
 canvasCtx = canvas.getContext('2d');
 
-const url = "http://35.230.86.157/picturePost";
-let base64;
-let postPicture = new FormData();
-
 // 1秒ごとに実行
 setInterval(() => {
-    // video要素の映像をcanvasに描画する
-    canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    base64 = this.canvas.toDataURL('image/png');
-    postPicture.append('img', base64);
-    fetch(url, {
-        method: 'POST',
-        body: postPicture,
-    })
-    .then(function() {
-        deleteAllFormData(postPicture); 
-        console.log("Picture Post Success");
-    });
+    picturePost()
+    // pictureGet()
 }, 1000);
-
-function deleteAllFormData(formData) {
-  const keys = [];
-  for (const key of formData.keys()) {
-      keys.push(key);
-  }
-  for (const idx in keys) {
-      formData.delete(keys[idx]);
-  }
-}

@@ -98,6 +98,10 @@ video{width:960px; height:540px; object-fit: contain; box-sizing: border-box; po
   margin-top:15px;
 }
 
+#odaiAnswer{
+  margin-top:15px;
+}
+
 #Area_AnsOutput{
   width:500px;
   height:150px;

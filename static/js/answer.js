@@ -39,10 +39,23 @@ function answerCheck(usetAnswer){
         return response.text();
     })
     .then(function(tureAnswer) {
-        if(usetAnswer == tureAnswer){
+        if(usetAnswer === tureAnswer){
             let userPoint = document.getElementById('userPoint');
             let newPoint = Number(userPoint.textContent) + 100;
             userPoint.textContent = newPoint;
+        }
+    });
+}
+
+function dispOdai(getAnswer){
+    fetch("http://35.230.86.157/trueAnswer")
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(tureAnswer) {
+        if(getAnswer === tureAnswer){
+            let odai = document.getElementById('odaiAnswer');
+            odai.textContent = getAnswer;
         }
     });
 }
