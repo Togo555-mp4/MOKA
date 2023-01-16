@@ -22,7 +22,8 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
-
+        let img = document.getElementById('Area_Picture');
+        let b64 = ImageToBase64(img, "image/jpeg")
     });
 }
 
@@ -39,6 +40,13 @@ navigator.mediaDevices.getUserMedia({
 }).catch(e => {
   console.log(e)
 })
+
+//画像の描画
+function dispPictrue(){
+    const img = document.createElement('img');
+    video.id = 'img';
+    document.getElementById('Area_Picture').appendChild(img);
+}
 
 // canvas要素をつくる
 const canvasSize = { w: 640, h: 480 };

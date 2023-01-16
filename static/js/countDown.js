@@ -5,6 +5,9 @@ const getUrl = "http://35.230.86.157/countStartGet"
 const box = document.getElementById('box');
 const msg = document.getElementById('msg');
 
+let before = "";
+let now = "";
+
 function countStartGet(url){
   fetch(url)
   .then(function(response) {
@@ -15,9 +18,9 @@ function countStartGet(url){
       now = text;
       if(before != now){
         if(now === ""){
-          countStart()
+          countStart();
         }else{
-          countStop()
+          countStop();
         }
       }
       before = now;
@@ -36,10 +39,7 @@ function sendOkPost(postUrl){
 
 let timerfactor;
 function countStart() {
-  //変数
   let counter = 3;
-  let before = "";
-  let now = "";
   timerfactor = setInterval(function() {
     if (counter == 0) {
       //規定値になると要素を削除

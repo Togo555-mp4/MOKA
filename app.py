@@ -22,12 +22,19 @@ def index():
 def game():
     return render_template("playerView.html")
 
+
+startOK = "ON"
+sendOK = "ON"
 #表示画像のget
 @app.route("/pictureGet")
 def pictureGet():
-    
-    enc_data = ""
-    return enc_data
+    if(sendOK == "ON"):
+        return 0
+    elif(sendOK == "OK"):
+        enc_data = ""
+        with open("after.jpg", "rb") as f:
+            enc_data = base64.b64decode(f.read())
+        return enc_data.decode('utf-8')
 
 #比較画像のpost
 @app.route("/picturePost")
@@ -36,17 +43,22 @@ def picturePost():
     dec_data = base64.b64decode(enc_data.split(',')[1] ) # 環境依存の様(","で区切って本体をdecode)
     with open("before.jpg", 'bw') as f:
         f.write(dec_data)
-    # compare_Pic.
+    difference = 0
+    if(difference < 5):
+        startOK = "OK"
+    else:
+        startOK = "ON"
     return 0
 
 #カウント開始・中断合図のget
 @app.route("/countStartGet")
 def countStartGet():
-    return 0
+    return startOK
 
 #送信許可のpost
 @app.route("/sendOkPost")
 def sendOkPost():
+    sendOK = "sendOKPost"
     return 0
 
 #回答データのget
