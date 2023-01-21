@@ -2,15 +2,6 @@ const textboxElement = document.getElementById('Area_AnsOutput');
 const answerForm = document.querySelector('#answerForm');
 const btn = document.querySelector('#btn');
 
-function answersDisp(text){
-    // 新しいHTML要素を作成
-    let newElement = document.createElement('p');
-    let newContent = document.createTextNode(text);
-    newElement.appendChild(newContent);
-    // 指定した要素の中の末尾に挿入
-    textboxElement.appendChild(newElement);
-}
-
 function answerGet(url){
     fetch(url)
     .then(function(response) {
@@ -19,7 +10,12 @@ function answerGet(url){
     .then(function(text) {
         console.log(text)
         if(text === "data is none"){
-            answersDisp(text)
+            // 新しいHTML要素を作成
+            let newElement = document.createElement('p');
+            let newContent = document.createTextNode(text);
+            newElement.appendChild(newContent);
+            // 指定した要素の中の末尾に挿入
+            textboxElement.appendChild(newElement);
         }
     }).catch(error => {
         console.log(error.message)
