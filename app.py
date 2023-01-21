@@ -23,58 +23,59 @@ def game():
     return render_template("playerView.html")
 
 
-startOK = "ON"
-sendOK = "ON"
-#表示画像のget
-@app.route("/pictureGet")
-def pictureGet():
-    if(sendOK == "ON"):
-        return 0
-    elif(sendOK == "OK"):
-        enc_data = ""
-        with open("after.jpg", "rb") as f:
-            enc_data = base64.b64decode(f.read())
-        return enc_data.decode('utf-8')
+# startOK = "ON"
+# sendOK = "ON"
+# #表示画像のget
+# @app.route("/pictureGet")
+# def pictureGet():
+#     if(sendOK == "ON"):
+#         return 0
+#     elif(sendOK == "OK"):
+#         enc_data = ""
+#         with open("after.jpg", "rb") as f:
+#             enc_data = base64.b64decode(f.read())
+#         return enc_data.decode('utf-8')
 
-#比較画像のpost
-@app.route("/picturePost")
-def picturePost():
-    enc_data  = request.form['img']
-    dec_data = base64.b64decode(enc_data.split(',')[1] ) # 環境依存の様(","で区切って本体をdecode)
-    with open("before.jpg", 'bw') as f:
-        f.write(dec_data)
-    difference = 0
-    if(difference < 5):
-        startOK = "OK"
-    else:
-        startOK = "ON"
-    return 0
+# #比較画像のpost
+# @app.route("/picturePost")
+# def picturePost():
+#     enc_data  = request.form['img']
+#     dec_data = base64.b64decode(enc_data.split(',')[1] ) # 環境依存の様(","で区切って本体をdecode)
+#     with open("before.jpg", 'bw') as f:
+#         f.write(dec_data)
+#     difference = 0
+#     if(difference < 5):
+#         startOK = "OK"
+#     else:
+#         startOK = "ON"
+#     return 0
 
-#カウント開始・中断合図のget
-@app.route("/countStartGet")
-def countStartGet():
-    return startOK
+# #カウント開始・中断合図のget
+# @app.route("/countStartGet")
+# def countStartGet():
+#     return startOK
 
-#送信許可のpost
-@app.route("/sendOkPost")
-def sendOkPost():
-    sendOK = "sendOKPost"
-    return 0
+# #送信許可のpost
+# @app.route("/sendOkPost")
+# def sendOkPost():
+#     sendOK = "sendOKPost"
+#     return 0
 
 #回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
-def answerGet():  # 関数名は重複していなければなんでもよい
-    connect_Maria.connectMariadb("SELECT * FROM テーブル名 ORDER BY 列名 DESC LIMIT 1")
-
-    result = ""
+def answerGet():
+    data = connect_Maria.getMariadb("SELECT * FROM comments ORDER BY userid DESC LIMIT 1")
+    result = data[1]
     return result
 
-#回答データのpost	
+#回答データのpost
+postNum = 1
 @app.route('/answerPost', methods=['POST'])
 def answerPost():
     answer = request.form['answer']
-    connect_Maria.connectMariadb("INSERT INTO  VALUS " + answer)
-    return 
+    connect_Maria.postMariadb("INSERT INTO comments VALUS ("  + postNum + ", " + answer + ")")
+    postNum = postNum + 1
+    return 0
 
 #正解データのget
 @app.route("/trueAnswer")

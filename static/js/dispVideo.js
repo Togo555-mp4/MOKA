@@ -4,16 +4,16 @@ const pictureGetUrl = "http://35.230.86.157/pictureGet"
 function picturePost(){
     // video要素の映像をcanvasに描画する
     canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    let base64 = this.canvas.toDataURL('image/png');;
-    let postPicture = new FormData();
-    postPicture.append('img', base64);
-    fetch(postUrl, {
-        method: 'POST',
-        body: postPicture,
-    })
-    .then(function() {
-        console.log("Picture Post Success");
-    });
+    // let base64 = this.canvas.toDataURL('image/png');;
+    // let postPicture = new FormData();
+    // postPicture.append('img', base64);
+    // fetch(postUrl, {
+    //     method: 'POST',
+    //     body: postPicture,
+    // })
+    // .then(function() {
+    //     console.log("Picture Post Success");
+    // });
 }
 
 function pictureGet(){
@@ -47,10 +47,6 @@ function dispPictrue(){
     const img = document.createElement('img');
     video.id = 'img';
     document.getElementById('Area_Picture').appendChild(img);
-}
-
-function vinCon(){
-    console.log("video");
 }
 
 // canvas要素をつくる
