@@ -64,7 +64,7 @@ def game():
 #回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
 def answerGet():
-    data = connect_Maria.getMariadb("SELECT * FROM comments ORDER BY userid DESC LIMIT 1")
+    data = connect_Maria.getMariadb("SELECT * FROM answers ORDER BY userid DESC LIMIT 1")
     result = data[1]
     return result
 
@@ -74,7 +74,7 @@ postNum = 1
 def answerPost():
     global postNum
     answer = request.form['answer']
-    connect_Maria.postMariadb("INSERT INTO comments VALUES (" + str(postNum) + ", '" + answer + "')")
+    connect_Maria.postMariadb("INSERT INTO answers VALUES (" + str(postNum) + ", '" + answer + "')")
     return answer
 
 #正解データのget
