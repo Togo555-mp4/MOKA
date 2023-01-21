@@ -2,7 +2,7 @@ const textboxElement = document.getElementById('Area_AnsOutput');
 const answerForm = document.querySelector('#answerForm');
 const btn = document.querySelector('#btn');
 
-function answersDisp(){
+function answersDisp(text){
     // 新しいHTML要素を作成
     let newElement = document.createElement('p');
     let newContent = document.createTextNode(text);
@@ -19,7 +19,7 @@ function answerGet(url){
     .then(function(text) {
         console.log(text)
         if(text === "data is none"){
-            answersDisp()
+            answersDisp(text)
         }
     }).catch(error => {
         console.log(error.message)
