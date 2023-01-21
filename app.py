@@ -67,7 +67,7 @@ def answerGet():
     if data is None:
         result = "data is none"
     else:
-        result = data[1]
+        result = len(data)
     return result
 
 #回答データのpost
