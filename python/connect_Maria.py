@@ -42,10 +42,6 @@ def getMariadb(sqlText):
     # Get Cursor
     cur = conn.cursor()
     data = cur.execute(sqlText)
-    
-    if(len(data) < 2){
-        data = [0, 0]
-    }
 
     cur.close()
     conn.close()
