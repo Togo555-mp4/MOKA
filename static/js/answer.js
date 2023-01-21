@@ -9,7 +9,7 @@ function answerGet(url){
     })
     .then(function(text) {
         console.log(text)
-        if(text === "data is none"){
+        if(text !== "data is none"){
             // 新しいHTML要素を作成
             let newElement = document.createElement('p');
             let newContent = document.createTextNode(text);
