@@ -27,6 +27,7 @@ function pictureGet(){
     });
 }
 
+
 //動画の描画
 const video = document.createElement('video');
 video.id = 'video';
@@ -41,11 +42,15 @@ navigator.mediaDevices.getUserMedia({
   console.log(e)
 })
 
-//画像の描画
+// 画像の描画
 function dispPictrue(){
     const img = document.createElement('img');
     video.id = 'img';
     document.getElementById('Area_Picture').appendChild(img);
+}
+
+function vinCon(){
+    console.log("video");
 }
 
 // canvas要素をつくる
@@ -57,9 +62,3 @@ canvas.height = canvasSize.h;
 document.getElementById('canvasArea').appendChild(canvas);
 // コンテキストを取得する
 canvasCtx = canvas.getContext('2d');
-
-// 1秒ごとに実行
-setInterval(() => {
-    picturePost()
-    // pictureGet()
-}, 1000);

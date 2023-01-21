@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request
 # base64のインポート
 import base64
-from .python import compare_Pic
+from .python import compare_Pic, connect_Maria 
 
 # Flaskオブジェクトの生成
 app = Flask(__name__)
@@ -64,7 +64,7 @@ def sendOkPost():
 #回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
 def answerGet():  # 関数名は重複していなければなんでもよい
-    cur.execute("SELECT * FROM テーブル名 ORDER BY 列名 DESC LIMIT 1")
+    connect_Maria.connectMariadb("SELECT * FROM テーブル名 ORDER BY 列名 DESC LIMIT 1")
 
     result = ""
     return result
@@ -73,13 +73,13 @@ def answerGet():  # 関数名は重複していなければなんでもよい
 @app.route('/answerPost', methods=['POST'])
 def answerPost():
     answer = request.form['answer']
-    cur.execute("INSERT INTO テーブル名 VALUES " + answer)
-    return 0
+    connect_Maria.connectMariadb("INSERT INTO  VALUS " + answer)
+    return 
 
 #正解データのget
 @app.route("/trueAnswer")
 def trueAnswer():
-    return 0
+    return ""
 
 #サーバ起動
 if __name__ == "__main__":

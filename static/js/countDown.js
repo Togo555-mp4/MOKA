@@ -17,7 +17,7 @@ function countStartGet(url){
       //一致信号を受け取った処理
       now = text;
       if(before != now){
-        if(now === ""){
+        if(now === "OK"){
           countStart();
         }else{
           countStop();
@@ -57,6 +57,6 @@ function countStart() {
 }
 
 // 1秒ごとに実行
-setInterval(() => {
-  countStartGet(getUrl)
-}, 1000);
+// setInterval(() => {
+//   countStartGet(getUrl)
+// }, 1000);

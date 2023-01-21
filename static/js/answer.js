@@ -23,7 +23,7 @@ function answerPost(url) {
     for (let value of formData.entries()) {
         answer = value[1];
     }
-    answerCheck(answer);
+    answerCheck(answer, "post");
     fetch(url, {
         method: 'POST',  // methodを指定しないとGETになる
         body: formData,  // Postで送るパラメータを指定
@@ -34,18 +34,26 @@ function answerPost(url) {
     });
 }
 
-function answerCheck(usetAnswer){
+function answerCheck(userAnswer, dic){
     fetch("http://35.230.86.157/trueAnswer")
     .then(function(response) {
         return response.text();
     })
     .then(function(tureAnswer) {
-        if(usetAnswer === tureAnswer){
-            let userPoint = document.getElementById('userPoint');
-            let newPoint = Number(userPoint.textContent) + 100;
-            userPoint.textContent = newPoint;
+        if(userAnswer === tureAnswer){
+            if(dic === "post"){
+                sumPoint()
+            }else{
+                dispOdai()
+            }
         }
     });
+}
+
+function sumPoint(){
+    let userPoint = document.getElementById('userPoint');
+    let newPoint = Number(userPoint.textContent) + 100;
+    userPoint.textContent = newPoint;
 }
 
 function dispOdai(getAnswer){
@@ -70,10 +78,5 @@ function dispOdai(getAnswer){
 //         userPoint.textContent = newPoint;
 //     }
 // }
-
-// // 1秒ごとに取得
-// setInterval(() => {
-//     answerGet('http://35.230.86.157/answerGet');
-// }, 1000);
 
 btn.addEventListener('click', answerForm, false);
