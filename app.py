@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request
 # base64のインポート
 import base64
-from .python import connect_Maria 
+from python import connect_Maria 
 
 # Flaskオブジェクトの生成
 app = Flask(__name__)
