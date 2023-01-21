@@ -5,18 +5,17 @@ const btn = document.querySelector('#btn');
 function answerGet(url){
     fetch(url)
     .then(function(response) {
-        confirm.log(response)
         return response.text();
     })
     .then(function(text) {
         console.log(text)
-        // if(text === "data is none"){
-        //     // 新しいHTML要素を作成
-        //     let new_element = document.createElement('p');
-        //     new_element.textContent = text;
-        //     // 指定した要素の中の末尾に挿入
-        //     textbox_element.appendChild(new_element);
-        // }
+        if(text === "data is none"){
+            // 新しいHTML要素を作成
+            let new_element = document.createElement('p');
+            new_element.textContent = text;
+            // 指定した要素の中の末尾に挿入
+            textbox_element.appendChild(new_element);
+        }
     }).catch(error => {
         console.log(error.message)
     });
