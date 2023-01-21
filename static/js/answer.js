@@ -1,4 +1,4 @@
-const textbox_element = document.getElementById('Area_AnsOutput');
+const textboxElement = document.getElementById('Area_AnsOutput');
 const answerForm = document.querySelector('#answerForm');
 const btn = document.querySelector('#btn');
 
@@ -11,10 +11,11 @@ function answerGet(url){
         console.log(text)
         if(text === "data is none"){
             // 新しいHTML要素を作成
-            let new_element = document.createElement('p');
-            new_element.textContent = text;
+            let newElement = document.createElement('p');
+            let newContent = document.createTextNode(text);
+            newElement.appendChild(newContent);
             // 指定した要素の中の末尾に挿入
-            textbox_element.appendChild(new_element);
+            textboxElement.appendChild(newElement);
         }
     }).catch(error => {
         console.log(error.message)
