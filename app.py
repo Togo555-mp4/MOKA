@@ -74,10 +74,10 @@ postNum = 1
 def answerPost():
     answer = request.form['answer']
     connect_Maria.postMariadb("INSERT INTO comments VALUES ("  + postNum + ", " + answer + ")")
-    return 0
+    return answer
 
 #正解データのget
-@app.route("/trueAnswer")
+@app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
     return ""
 

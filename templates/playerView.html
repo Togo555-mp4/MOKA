@@ -12,8 +12,8 @@
   <!-- 映像・画像の表示 -->
   <div id="Area_Picture"></div>
   <!--映像の描画と写真の送信-->
-  <script src="{{ url_for('static', filename='js/dispVideo.js') }}"></script>
   <div id="canvasArea"></div>
+  <script src="{{ url_for('static', filename='js/dispVideo.js') }}"></script>
 
   <!-- 獲得した点数の表示 -->
   <div id="Area_Score">
@@ -34,11 +34,11 @@
 
   <!--カウントダウン -->
   <div id="Area_Countdown">
-    <script src="{{ url_for('static', filename='js/countDown.js') }}"></script>
     <div id="box">
       <div id="msg"></div>
     </div>
   </div>
+  <script src="{{ url_for('static', filename='js/countDown.js') }}"></script>
 
   <!-- お題の表示 -->
   <div id="Area_odai">
@@ -48,7 +48,7 @@
 
   <!-- 入力された他の解答の表示 -->
   <div id="Area_AnsOutput"></div>
-  
+  <script src="{{ url_for('static', filename='js/game.js') }}"></script>
 </body>
 
 </html>
