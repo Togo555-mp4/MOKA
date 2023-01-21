@@ -5,7 +5,8 @@ const btn = document.querySelector('#btn');
 function answerGet(url){
     fetch(url)
     .then(function(response) {
-      return response.text();
+        confirm.log(response)
+        return response.text();
     })
     .then(function(text) {
         // 新しいHTML要素を作成
