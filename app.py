@@ -73,7 +73,7 @@ postNum = 1
 @app.route('/answerPost', methods=['POST'])
 def answerPost():
     answer = request.form['answer']
-    connect_Maria.postMariadb("INSERT INTO comments VALUS ("  + postNum + ", " + answer + ")")
+    connect_Maria.postMariadb("INSERT INTO comments VALUES ("  + postNum + ", " + answer + ")")
     postNum = postNum + 1
     return 0
 
