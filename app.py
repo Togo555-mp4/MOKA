@@ -74,7 +74,6 @@ postNum = 1
 def answerPost():
     answer = request.form['answer']
     connect_Maria.postMariadb("INSERT INTO comments VALUES ("  + postNum + ", " + answer + ")")
-    postNum = postNum + 1
     return 0
 
 #正解データのget
