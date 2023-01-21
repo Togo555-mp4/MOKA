@@ -83,5 +83,3 @@ function dispOdai(getAnswer){
 //         userPoint.textContent = newPoint;
 //     }
 // }
-
-btn.addEventListener('click', answerForm, false);

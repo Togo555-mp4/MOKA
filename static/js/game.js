@@ -18,5 +18,5 @@ setInterval(() => {
     // picturePost();
     // pictureGet();
     // 回答について
-    answerGet('http://35.230.86.157/answerGet');
+    // answerGet('http://35.230.86.157/answerGet');
 }, 1000);

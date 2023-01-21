@@ -72,6 +72,7 @@ def answerGet():
 postNum = 1
 @app.route('/answerPost', methods=['POST'])
 def answerPost():
+    global postNum
     answer = request.form['answer']
     connect_Maria.postMariadb("INSERT INTO comments VALUES ("  + postNum + ", " + answer + ")")
     return answer
@@ -80,7 +81,7 @@ def answerPost():
 @app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
     return ""
-
+    
 #サーバ起動
 if __name__ == "__main__":
     app.run(debug=True)
