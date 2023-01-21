@@ -1,7 +1,6 @@
 @charset "UTF-8";
 body{
   background-color:#00BFFF;
-  font-size: 40px;
   font-family: "HGP創英角ﾎﾟｯﾌﾟ体";
   position: relative;
 }
@@ -141,4 +140,10 @@ video{
   overflow: scroll;
   z-index: 30;
   position: absolute;
+  
+}
+
+p{
+  font-size: 30px;
+  margin: 0px 0px 0px 0px;
 }
