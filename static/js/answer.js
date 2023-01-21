@@ -14,6 +14,8 @@ function answerGet(url){
         new_element.textContent = text;
         // 指定した要素の中の末尾に挿入
         textbox_element.appendChild(new_element);
+    }).catch(error => {
+        console.log(error.message)
     });
 }
 
@@ -32,6 +34,8 @@ function answerPost(url) {
     .then(function() {  // Postした後に結果をGetする（コールバックなのでPostが実行完了してから実行される）
         answerGet('http://35.230.86.157/answerGet');
         console.log("Answer Post Success");
+    }).catch(error => {
+        console.log(error.message)
     });
 }
 
