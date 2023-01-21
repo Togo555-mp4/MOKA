@@ -1,3 +1,13 @@
 1．ターゲットDirectoryで「cmd」を入力する。
 2．python 「ファイル名.py」を入力する。
 3．pythonのプログラムが動く
+
+やるべきこと
+1．写真ファイルはどこに送るか　->　http://35.230.86.157/picturePost
+2．どうやって送った写真のパスを知る　->　/var/www/html/MOKA/img
+3．ジェスチャーをするプレイヤーの画面を作る　->　
+4．送った回答を表示する　->　
+5．プレイヤーの切り替え　->　
+6．どのタイミングでcompare_Picをやっているのか　->　
+7．お題のリストを作る　->　データベース作ったquestions(q_id INT PRIMARY KEY, question VARCHAR(255) NOT NULL)
+8. 
