@@ -9,13 +9,14 @@ function answerGet(url){
         return response.text();
     })
     .then(function(text) {
-        if(text === "data is none"){
-        // 新しいHTML要素を作成
-            let new_element = document.createElement('p');
-            new_element.textContent = text;
-            // 指定した要素の中の末尾に挿入
-            textbox_element.appendChild(new_element);
-        }
+        console.log(text)
+        // if(text === "data is none"){
+        //     // 新しいHTML要素を作成
+        //     let new_element = document.createElement('p');
+        //     new_element.textContent = text;
+        //     // 指定した要素の中の末尾に挿入
+        //     textbox_element.appendChild(new_element);
+        // }
     }).catch(error => {
         console.log(error.message)
     });
