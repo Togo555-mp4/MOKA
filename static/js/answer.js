@@ -9,11 +9,13 @@ function answerGet(url){
         return response.text();
     })
     .then(function(text) {
+        if(text === "data is none"){
         // 新しいHTML要素を作成
-        let new_element = document.createElement('p');
-        new_element.textContent = text;
-        // 指定した要素の中の末尾に挿入
-        textbox_element.appendChild(new_element);
+            let new_element = document.createElement('p');
+            new_element.textContent = text;
+            // 指定した要素の中の末尾に挿入
+            textbox_element.appendChild(new_element);
+        }
     }).catch(error => {
         console.log(error.message)
     });
@@ -32,7 +34,7 @@ function answerPost(url) {
         body: formData,  // Postで送るパラメータを指定
     })
     .then(function() {  // Postした後に結果をGetする（コールバックなのでPostが実行完了してから実行される）
-        // answerGet('http://35.230.86.157/answerGet');
+        answerGet('http://35.230.86.157/answerGet');
         console.log("Answer Post Success");
     }).catch(error => {
         console.log(error.message)
