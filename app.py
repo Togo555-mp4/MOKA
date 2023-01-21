@@ -22,7 +22,6 @@ def index():
 def game():
     return render_template("playerView.html")
 
-
 # startOK = "ON"
 # sendOK = "ON"
 # #表示画像のget

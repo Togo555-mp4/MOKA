@@ -22,6 +22,7 @@ def postMariadb(sqlText):
     cur.execute(sqlText)
 
     cur.close()
+    conn.commit()
     conn.close()
 
 # Connect to MariaDB Platform
