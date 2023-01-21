@@ -14,6 +14,7 @@ function answerGet(url){
             let newElement = document.createElement('p');
             let newContent = document.createTextNode(text);
             newElement.appendChild(newContent);
+            newElement.setAttribute("class","answerElement");
             // 指定した要素の中の末尾に挿入
             textboxElement.appendChild(newElement);
         }
