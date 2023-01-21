@@ -63,7 +63,7 @@ def game():
 #回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
 def answerGet():
-    data = connect_Maria.getMariadb("SELECT * FROM answers ORDER BY userid DESC LIMIT 1")
+    data = connect_Maria.getMariadb("SELECT * FROM answers")
     if data is None:
         result = "data is none"
     else:
