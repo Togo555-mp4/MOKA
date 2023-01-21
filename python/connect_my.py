@@ -2,7 +2,7 @@
 import mysql.connector
 import sys
 
-# Connect to MariaDB Platform
+# Connect to mysql Platform
 conn = mysql.connector.connect(
         user="testing",
         password="",

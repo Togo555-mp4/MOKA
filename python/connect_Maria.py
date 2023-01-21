@@ -22,6 +22,5 @@ def connectMariadb(sqlText):
 
     cur.execute(sqlText)
 
-    # Print Result-set
-    for row in cur:
-        print(row)
+    cur.close()
+    conn.close()
