@@ -43,7 +43,7 @@ def getMariadb(sqlText):
     # Get Cursor
     cur = conn.cursor()
     cur.execute(sqlText)
-    result = cur.fetchone()
+    result = cur.fetchall()
 
     cur.close()
     conn.commit()
