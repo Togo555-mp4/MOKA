@@ -106,7 +106,6 @@ video{
   top:30vh;
   left:150vh;
   z-index: 30;
-  position: absolute;
 }
 
 #Area_odai{
@@ -119,7 +118,6 @@ video{
   left:1000px;
   font-weight:800;
   z-index: 30;
-  position: absolute;
 }
 
 #odaiTitle{
@@ -138,9 +136,8 @@ video{
   position:absolute;
   top:580px;
   left:1000px;
-  overflow: scroll;
+  overflow-y:scroll;
   z-index: 30;
-  position: absolute;
 }
 
 .answerElement{
