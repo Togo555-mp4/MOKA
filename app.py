@@ -66,9 +66,9 @@ def game():
 def answerGet():
     data = connect_Maria.getMariadb("SELECT * FROM answers ORDER BY userid DESC LIMIT 1")
     if data is None:
-        result = data[1]
-    else:
         result = "data is none"
+    else:
+        result = data[1]
     return result
 
 #回答データのpost
