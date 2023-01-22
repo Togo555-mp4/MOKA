@@ -125,7 +125,8 @@ video{
 }
 
 #odaiAnswer{
-  margin-top:15px;
+  margin-top:-40px;
+  margin-left: 100px;
 }
 
 #Area_AnsOutput{
@@ -141,6 +142,6 @@ video{
 }
 
 .answerElement{
-  margin: 0 0 0 5px;
+  margin: 5px 0 10px 10px;
   font-size: 30px;
 }
