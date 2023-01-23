@@ -16,7 +16,7 @@ function picturePost(){
     // video要素の映像をcanvasに描画する
     canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
     let base64 = this.canvas.toDataURL();
-    let postPicture = base64.replace("/^data:\w+/\w+;base64,/", "");
+    let postPicture = base64.replace(/^data:\w+/\w+;base64,/, "");
     // fetch(postUrl, {
     //     method: 'POST',
     //     headers: {'Content-Type': 'application/json' },
