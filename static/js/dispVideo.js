@@ -15,12 +15,14 @@ canvasCtx = canvas.getContext('2d');
 function picturePost(){
     // video要素の映像をcanvasに描画する
     canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    let base64 = this.canvas.toDataURL('image/jpg').response("/^data:\w+\/\+;base64./,", "");
-    let postPicture = new FormData();
-    postPicture.append('img', base64);
+    let base64 = this.canvas.toDataURL('image/jpg');
+    let postPicture = base64.replace("/^data:\w+\/\+;base64./,", "");
     fetch(postUrl, {
         method: 'POST',
-        body: postPicture,
+        headers: {'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          img: postPicture
+        }),
     })
     .then(function() {
         console.log("Picture Post Success");

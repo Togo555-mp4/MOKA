@@ -44,7 +44,7 @@ def pictureGet():
 @app.route("/picturePost", methods=['POST'])
 def picturePost():
     global startOK
-    enc_data  = request.form['img']
+    enc_data  = request.json['img']
     dec_data = base64.b64decode(enc_data.split(',')[1] ) # 環境依存の様(","で区切って本体をdecode)
     with open("python/img/before.jpg", 'bw') as f:
         f.write(dec_data)
