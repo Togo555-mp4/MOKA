@@ -46,7 +46,7 @@ def picturePost():
     global startOK
     enc_data = request.json['img']
     dec_data = base64.b64decode(enc_data)
-    with open("python/img/1.jpg", mode='wb') as f:
+    with open("python/img/before.jpg", mode='wb') as f:
         f.write(dec_data)
     difference = compare_Pic.comparePic("img/before.jpg", "img/after.jpg")
     with open("python/img/after.jpg", mode='wb') as f:
