@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request
 # base64のインポート
 import base64
-from python import connect_Maria
+from python import connect_Maria, compare_Pic
 
 # Flaskオブジェクトの生成
 app = Flask(__name__)
@@ -22,11 +22,16 @@ def index():
 def game():
     return render_template("playerView.html")
 
+# @app.route("/playerCheck")
+# def playerCheck():
+#     return "player"
+
 # startOK = "ON"
 # sendOK = "ON"
 # #表示画像のget
 # @app.route("/pictureGet")
 # def pictureGet():
+#     global sendOK
 #     if(sendOK == "ON"):
 #         return 0
 #     elif(sendOK == "OK"):
@@ -38,11 +43,12 @@ def game():
 # #比較画像のpost
 # @app.route("/picturePost")
 # def picturePost():
+#     global startOK
 #     enc_data  = request.form['img']
 #     dec_data = base64.b64decode(enc_data.split(',')[1] ) # 環境依存の様(","で区切って本体をdecode)
-#     with open("before.jpg", 'bw') as f:
+#     with open("python/img/before.jpg", 'bw') as f:
 #         f.write(dec_data)
-#     difference = 0
+#     difference = compare_Pic.comparePic("img/before.jpg", "img/after.jpg")
 #     if(difference < 5):
 #         startOK = "OK"
 #     else:
@@ -52,18 +58,20 @@ def game():
 # #カウント開始・中断合図のget
 # @app.route("/countStartGet")
 # def countStartGet():
+#     global startOK
 #     return startOK
 
 # #送信許可のpost
 # @app.route("/sendOkPost")
 # def sendOkPost():
-#     sendOK = "sendOKPost"
+#     global sendOK
+#     sendOK = "OK"
 #     return 0
 
 #回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
 def answerGet():
-    data = connect_Maria.getMariadb("SELECT * FROM answers ORDER BY comment DESC LIMIT 1")
+    data = connect_Maria.getMariadb("SELECT comment from answers where comid=(select MAX(comid) from answers);")
     if data is None:
         result = "data is none"
     else:
@@ -76,7 +84,7 @@ postNum = 1
 def answerPost():
     global postNum
     answer = request.form['answer']
-    connect_Maria.postMariadb("INSERT INTO answers VALUES (" + str(postNum) + ", '" + answer + "')")
+    connect_Maria.postMariadb("INSERT INTO answers (userid, comment) VALUES(1, '" + answer + "');")
     return answer
 
 #正解データのget

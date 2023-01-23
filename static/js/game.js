@@ -1,9 +1,10 @@
 function playerGet(){
-    fetch(url)
+    fetch("/playerCheck")
     .then(function(response) {
       return response.text();
     })
     .then(function(text) {
+        whichDisp = text;
         if(text === "player"){
             document.getElementById("answerForm").style.display ="none";
         }else{
