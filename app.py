@@ -44,9 +44,9 @@ def pictureGet():
 @app.route("/picturePost", methods=['POST'])
 def picturePost():
     global startOK
-    enc_data  = request.json['img']
-    dec_data = base64.b64decode(enc_data.split(',')[1] ) # 環境依存の様(","で区切って本体をdecode)
-    with open("python/img/before.jpg", 'bw') as f:
+    enc_data = request.json['img']
+    dec_data = base64.b64decode(enc_data)
+    with open("python/img/before.jpg", mode='wb') as f:
         f.write(dec_data)
     difference = compare_Pic.comparePic("img/before.jpg", "img/after.jpg")
     with open("python/img/after.jpg", 'bw') as f:
