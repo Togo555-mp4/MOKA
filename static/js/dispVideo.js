@@ -1,5 +1,5 @@
 const postUrl = "http://35.230.86.157/picturePost";
-const pictureGetUrl = "http://35.230.86.157/pictureGet"
+const pictureGetUrl = "http://35.230.86.157/pictureGet";
 
 // 動画を写真にしたものを表示するcanvas要素
 const canvasSize = { w: 640, h: 480 };
