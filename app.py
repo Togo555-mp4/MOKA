@@ -29,7 +29,7 @@ def game():
 startOK = "ON"
 sendOK = "ON"
 #表示画像のget
-@app.route("/pictureGet")
+@app.route("/pictureGet", methods=['GET'])
 def pictureGet():
     global sendOK
     if(sendOK == "ON"):
@@ -41,12 +41,12 @@ def pictureGet():
         return enc_data.decode('utf-8')
 
 #比較画像のpost
-@app.route("/picturePost")
+@app.route("/picturePost", methods=['POST'])
 def picturePost():
     global startOK
-    enc_data  = request.form['img']
-    dec_data = base64.b64decode(enc_data.split(',')[1] ) # 環境依存の様(","で区切って本体をdecode)
-    with open("python/img/before.jpg", 'bw') as f:
+    enc_data = request.json['img']
+    dec_data = base64.b64decode(enc_data)
+    with open("python/img/before.jpg", mode='wb') as f:
         f.write(dec_data)
     difference = compare_Pic.comparePic("img/before.jpg", "img/after.jpg")
     with open("python/img/after.jpg", 'bw') as f:
@@ -58,13 +58,13 @@ def picturePost():
     return 0
 
 #カウント開始・中断合図のget
-@app.route("/countStartGet")
+@app.route("/countStartGet", methods=['GET'])
 def countStartGet():
     global startOK
     return startOK
 
 #送信許可のpost
-@app.route("/sendOkPost")
+@app.route("/sendOkPost", methods=['POST'])
 def sendOkPost():
     global sendOK
     sendOK = "OK"

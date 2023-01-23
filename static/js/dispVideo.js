@@ -1,5 +1,5 @@
 const postUrl = "http://35.230.86.157/picturePost";
-const pictureGetUrl = "http://35.230.86.157/pictureGet"
+const pictureGetUrl = "http://35.230.86.157/pictureGet";
 
 // 動画を写真にしたものを表示するcanvas要素
 const canvasSize = { w: 640, h: 480 };
@@ -15,16 +15,18 @@ canvasCtx = canvas.getContext('2d');
 function picturePost(){
     // video要素の映像をcanvasに描画する
     canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    let base64 = this.canvas.toDataURL('image/jpg');;
-    let postPicture = new FormData();
-    postPicture.append('img', base64);
-    fetch(postUrl, {
-        method: 'POST',
-        body: postPicture,
-    })
-    .then(function() {
-        console.log("Picture Post Success");
-    });
+    let base64 = this.canvas.toDataURL();
+    let postPicture = base64.replace(/^data:\w+/\w+;base64,/, "");
+    // fetch(postUrl, {
+    //     method: 'POST',
+    //     headers: {'Content-Type': 'application/json' },
+    //     body: JSON.stringify({
+    //       img: postPicture
+    //     }),
+    // })
+    // .then(function() {
+    //     console.log("Picture Post Success");
+    // });
 }
 
 function pictureGet(){
