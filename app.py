@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request
 # base64のインポート
 import base64
-from python import connect_Maria
+from python import connect_Maria, compare_Pic
 
 # Flaskオブジェクトの生成
 app = Flask(__name__)
@@ -26,47 +26,49 @@ def game():
 # def playerCheck():
 #     return "player"
 
-# startOK = "ON"
-# sendOK = "ON"
-# #表示画像のget
-# @app.route("/pictureGet")
-# def pictureGet():
-#     global sendOK
-#     if(sendOK == "ON"):
-#         return 0
-#     elif(sendOK == "OK"):
-#         enc_data = ""
-#         with open("after.jpg", "rb") as f:
-#             enc_data = base64.b64decode(f.read())
-#         return enc_data.decode('utf-8')
+startOK = "ON"
+sendOK = "ON"
+#表示画像のget
+@app.route("/pictureGet")
+def pictureGet():
+    global sendOK
+    if(sendOK == "ON"):
+        return 0
+    elif(sendOK == "OK"):
+        enc_data = ""
+        with open("after.jpg", "rb") as f:
+            enc_data = base64.b64decode(f.read())
+        return enc_data.decode('utf-8')
 
-# #比較画像のpost
-# @app.route("/picturePost")
-# def picturePost():
-#     global startOK
-#     enc_data  = request.form['img']
-#     dec_data = base64.b64decode(enc_data.split(',')[1] ) # 環境依存の様(","で区切って本体をdecode)
-#     with open("python/img/before.jpg", 'bw') as f:
-#         f.write(dec_data)
-#     difference = compare_Pic.comparePic("img/before.jpg", "img/after.jpg")
-#     if(difference < 5):
-#         startOK = "OK"
-#     else:
-#         startOK = "ON"
-#     return 0
+#比較画像のpost
+@app.route("/picturePost")
+def picturePost():
+    global startOK
+    enc_data  = request.form['img']
+    dec_data = base64.b64decode(enc_data.split(',')[1] ) # 環境依存の様(","で区切って本体をdecode)
+    with open("python/img/before.jpg", 'bw') as f:
+        f.write(dec_data)
+    difference = compare_Pic.comparePic("img/before.jpg", "img/after.jpg")
+    with open("python/img/after.jpg", 'bw') as f:
+        f.write(dec_data)
+    if(difference < 5):
+        startOK = "OK"
+    else:
+        startOK = "ON"
+    return 0
 
-# #カウント開始・中断合図のget
-# @app.route("/countStartGet")
-# def countStartGet():
-#     global startOK
-#     return startOK
+#カウント開始・中断合図のget
+@app.route("/countStartGet")
+def countStartGet():
+    global startOK
+    return startOK
 
-# #送信許可のpost
-# @app.route("/sendOkPost")
-# def sendOkPost():
-#     global sendOK
-#     sendOK = "OK"
-#     return 0
+#送信許可のpost
+@app.route("/sendOkPost")
+def sendOkPost():
+    global sendOK
+    sendOK = "OK"
+    return 0
 
 #回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
@@ -90,12 +92,7 @@ def answerPost():
 #正解データのget
 @app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
-    ans = connect_Maria.getMariadb("SELECT question FROM questions ORDER BY RAND() LIMIT 1;")
-    if ans is None:
-        result = "ans is none"
-    else:
-        result = ans=
-    return ans
+    return ""
     
 #サーバ起動
 if __name__ == "__main__":

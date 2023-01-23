@@ -1,6 +1,16 @@
-let whichDisp = ""
 const postUrl = "http://35.230.86.157/picturePost";
 const pictureGetUrl = "http://35.230.86.157/pictureGet"
+
+// 動画を写真にしたものを表示するcanvas要素
+const canvasSize = { w: 640, h: 480 };
+const canvas = document.createElement('canvas');
+canvas.id = 'canvas';
+canvas.width = canvasSize.w;
+canvas.height = canvasSize.h;
+document.getElementById('canvasArea').appendChild(canvas);
+// コンテキストを取得する
+canvasCtx = canvas.getContext('2d');
+
 
 function picturePost(){
     // video要素の映像をcanvasに描画する
@@ -23,6 +33,8 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
+        // コンテキストを取得する
+        imgCtx = viewImg.getContext('2d');
         //画像オブジェクトを生成
         let img = new Image();
         img.src = text;
@@ -33,10 +45,7 @@ function pictureGet(){
     });
 }
 
-
-if(whichDisp == ""){
-
-}else if(whichDisp == "player"){
+function dispVideo(){
     //動画の描画
     const video = document.createElement('video');
     video.id = 'video';
@@ -52,21 +61,11 @@ if(whichDisp == ""){
     })
 }
 
-// 動画を写真にしたものを表示するcanvas要素
-const canvasSize = { w: 640, h: 480 };
-const canvas = document.createElement('canvas');
-canvas.id = 'canvas';
-canvas.width = canvasSize.w;
-canvas.height = canvasSize.h;
-document.getElementById('canvasArea').appendChild(canvas);
-// コンテキストを取得する
-canvasCtx = canvas.getContext('2d');
-
-//　取得した画像を表示するcanvas要素
-const viewImg = document.createElement('canvas');
-viewImg.id = 'viewImg';
-viewImg.width = canvasSize.w;
-viewImg.height = canvasSize.h;
-document.getElementById('canvasArea').appendChild(viewImg);
-// コンテキストを取得する
-imgCtx = viewImg.getContext('2d');
+function dispImg(){
+    //　取得した画像を表示するcanvas要素
+    const viewImg = document.createElement('canvas');
+    viewImg.id = 'viewImg';
+    viewImg.width = canvasSize.w;
+    viewImg.height = canvasSize.h;
+    document.getElementById('Area_Picture').appendChild(viewImg);
+}
