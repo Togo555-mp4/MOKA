@@ -92,8 +92,12 @@ def answerPost():
 #正解データのget
 @app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
-    # data = connect_Maria.getMariadb("SELECT comment from answers where comid=(select MAX(comid) from answers);")
-    return ""
+    ans = connect_Maria.getMariadb("SELECT question FROM questions ORDER BY RAND() LIMIT 1;")
+    if ans is None:
+        result = "ans is none"
+    else:
+        result = ans
+    return result
     
 #サーバ起動
 if __name__ == "__main__":
