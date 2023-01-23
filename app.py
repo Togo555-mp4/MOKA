@@ -49,7 +49,7 @@ def picturePost():
     with open("python/img/before.jpg", mode='wb') as f:
         f.write(dec_data)
     difference = compare_Pic.comparePic("img/before.jpg", "img/after.jpg")
-    with open("python/img/after.jpg", 'bw') as f:
+    with open("python/img/after.jpg", mode='wb') as f:
         f.write(dec_data)
     if(difference < 5):
         startOK = "OK"
