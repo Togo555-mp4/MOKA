@@ -90,7 +90,12 @@ def answerPost():
 #正解データのget
 @app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
-    return ""
+    ans = connect_Maria.getMariadb("SELECT question FROM questions ORDER BY RAND() LIMIT 1;")
+    if ans is None:
+        result = "ans is none"
+    else:
+        result = ans=
+    return ans
     
 #サーバ起動
 if __name__ == "__main__":
