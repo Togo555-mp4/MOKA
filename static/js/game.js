@@ -14,6 +14,7 @@ function playerGet(){
 }
 
 whichDisp = "player"
+
 // dispVideo()
 getOdai()
 
