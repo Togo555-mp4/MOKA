@@ -13,9 +13,9 @@ function playerGet(){
     });
 }
 
+whichDisp = "player"
 // dispVideo()
 getOdai()
-dispOdai()
 
 // 1秒ごとに行うもの
 setInterval(() => {
