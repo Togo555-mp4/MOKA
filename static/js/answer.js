@@ -74,9 +74,9 @@ function getOdai(){
         return response.text();
     })
     .then(function(text) {
-        odai =  text;
+        odai =  text[0][0];
         console.log(odai);
-        if(whichDisp == "playser"){
+        if(whichDisp == "player"){
             dispOdai()
         }
     }).catch(error => {
