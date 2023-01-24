@@ -74,7 +74,7 @@ function getOdai(){
     })
     .then(function(text) {
         console.log(text);
-        odai =  text;
+        odai =  text[0][0];
     }).catch(error => {
         console.log(error.message)
     });
