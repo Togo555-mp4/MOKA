@@ -2,7 +2,7 @@ const textboxElement = document.getElementById('Area_AnsOutput');
 const answerForm = document.querySelector('#answerForm');
 const btn = document.querySelector('#btn');
 
-let odai = "";
+let odai;
 
 function answerGet(url){
     fetch(url)
@@ -74,7 +74,7 @@ function getOdai(){
         return response.text();
     })
     .then(function(text) {
-        odai =  text[0][0];
+        odai = text[0];
         console.log(odai);
         if(whichDisp == "player"){
             dispOdai()
