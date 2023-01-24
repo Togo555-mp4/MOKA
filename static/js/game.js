@@ -13,7 +13,7 @@ function playerGet(){
     });
 }
 
-dispVideo()
+// dispVideo()
 getOdai()
 dispOdai()
 
