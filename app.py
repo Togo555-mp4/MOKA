@@ -99,7 +99,7 @@ def trueAnswer():
     if ans is None:
         result = "ans is none"
     else:
-        result = ans
+        result = ans[0][0]
     return result
     
 #サーバ起動
