@@ -15,6 +15,7 @@ function playerGet(){
 
 dispVideo()
 getOdai()
+dispOdai()
 
 // 1秒ごとに行うもの
 setInterval(() => {

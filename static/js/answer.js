@@ -62,11 +62,9 @@ function sumPoint(){
     userPoint.textContent = newPoint;
 }
 
-function dispOdai(getAnswer){
-    if(getAnswer === tureAnswer){
-        let odai = document.getElementById('odaiAnswer');
-        odai.textContent = getAnswer;
-    }
+function dispOdai(){
+    let odaiArea = document.getElementById('odaiAnswer');
+    odaiArea.textContent = odai;
 }
 
 function getOdai(){
@@ -75,6 +73,7 @@ function getOdai(){
         return response.text();
     })
     .then(function(text) {
+        console.log(text);
         odai =  text;
     });
 }
