@@ -74,6 +74,7 @@ function getOdai(){
     })
     .then(function(text) {
         odai = text;
+        console.log(odai)
         if(whichDisp == "player"){
             dispOdai()
         }
