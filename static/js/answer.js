@@ -2,6 +2,8 @@ const textboxElement = document.getElementById('Area_AnsOutput');
 const answerForm = document.querySelector('#answerForm');
 const btn = document.querySelector('#btn');
 
+let odai = "";
+
 function answerGet(url){
     fetch(url)
     .then(function(response) {
@@ -17,6 +19,7 @@ function answerGet(url){
             newElement.setAttribute("class","answerElement");
             // 指定した要素の中の末尾に挿入
             textboxElement.appendChild(newElement);
+            answerCheck(text, "get");
         }
     }).catch(error => {
         console.log(error.message)
@@ -44,19 +47,13 @@ function answerPost(url) {
 }
 
 function answerCheck(userAnswer, dic){
-    fetch("http://35.230.86.157/trueAnswer")
-    .then(function(response) {
-        return response.text();
-    })
-    .then(function(tureAnswer) {
-        if(userAnswer === tureAnswer){
-            if(dic === "post"){
-                sumPoint()
-            }else{
-                dispOdai()
-            }
+    if(userAnswer === odai){
+        if(dic === "post"){
+            sumPoint()
+        }else{
+            dispOdai()
         }
-    });
+    }
 }
 
 function sumPoint(){
@@ -66,15 +63,19 @@ function sumPoint(){
 }
 
 function dispOdai(getAnswer){
+    if(getAnswer === tureAnswer){
+        let odai = document.getElementById('odaiAnswer');
+        odai.textContent = getAnswer;
+    }
+}
+
+function getOdai(){
     fetch("http://35.230.86.157/trueAnswer")
     .then(function(response) {
         return response.text();
     })
-    .then(function(tureAnswer) {
-        if(getAnswer === tureAnswer){
-            let odai = document.getElementById('odaiAnswer');
-            odai.textContent = getAnswer;
-        }
+    .then(function(text) {
+        odai =  text;
     });
 }
 
