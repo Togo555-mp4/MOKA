@@ -63,7 +63,6 @@ function sumPoint(){
 }
 
 function dispOdai(){
-    console.log(odai);
     let odaiArea = document.getElementById('odaiAnswer');
     odaiArea.textContent = odai;
 }
@@ -75,7 +74,6 @@ function getOdai(){
     })
     .then(function(text) {
         odai = text;
-        console.log(odai);
         if(whichDisp == "player"){
             dispOdai()
         }
