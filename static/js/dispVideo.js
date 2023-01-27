@@ -1,6 +1,6 @@
 const picturepostUrl = "http://34.168.254.39/picturePost";
 const pictureGetUrl = "http://34.168.254.39/pictureGet";
-let beforeStartSign = "NO";
+let countSignal = "STOP";
 
 // 動画を写真にしたものを表示するcanvas要素
 const canvasSize = { w: 640, h: 480 };
@@ -30,14 +30,14 @@ function picturePost(){
     })
     .then(function(text){
         console.log(text);
-        if(text === "OK" && text !== beforeStartSign){
-            beforeStartSign = text;
+        if(text === "OK" && countSignal === "STOP"){
             countStart();
+            countSignal = "START";
         }else if(text === "NO"){
-            beforeStartSign = "NO";
             clearTimeout(timerfactor);
-            console.log("cancel");
+            countSignal = "STOP";
         }
+        console.log(countSignal)
     }).catch(error => {
         console.log(error.message);
     });

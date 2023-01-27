@@ -23,18 +23,20 @@ let timerfactor;
 let counter;
 function countStart() {
   counter = 4;
-  timerfactor = setTimeout(function() {
-    console.log("Count " + counter);
-    if (counter == 0) {
-      //規定値になるとタイマーストップ
-      clearTimeout(timerfactor);
-      console.log("finish");
-      msg.textContent = "";
-      beforeSendSign = "NO";
-      sendOkPost();
-    } else {
-      counter--;
-      msg.textContent = counter;
-    }
-  }, 1000);
+  timerfactor = setTimeout(count, 1000);
+}
+
+function count(){
+  console.log("Count " + counter);
+  if (counter == 0) {
+    //規定値になるとタイマーストップ
+    clearTimeout(timerfactor);
+    console.log("finish");
+    msg.textContent = "";
+    beforeSendSign = "NO";
+    sendOkPost();
+  } else {
+    counter--;
+    msg.textContent = counter;
+  }
 }
