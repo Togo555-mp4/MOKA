@@ -35,7 +35,6 @@ function picturePost(){
             countStart();
         }else if(text === "NO"){
             beforeStartSign = "NO";
-            counter = 4;
             clearTimeout(timerfactor);
             console.log("cancel");
         }
