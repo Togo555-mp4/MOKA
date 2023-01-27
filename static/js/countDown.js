@@ -20,19 +20,19 @@ function sendOkPost(){
 }
 
 let timerfactor;
-let counter = 4;
+let counter = 5;
 function countStart() {
-  if (counter == 0) {
-    //規定値になるとタイマーストップ
-    clearTimeout(timerfactor);
-    console.log("finish");
-    msg.textContent = "";
-    beforeSendSign = "NO";
-    sendOkPost();
-  } else {
-    console.log("Count " + counter);
-    counter--;
-    msg.textContent = counter;
-  }
-  timerfactor = setTimeout(countStart(), 10000);
+  counter = 5;
+  timerfactor = setInterval(function() {
+    if (counter == 0) {
+      //規定値になると要素を削除
+      clearInterval(timerfactor);
+      msg.textContent = "";
+      beforeSendSign = "NO";
+      sendOkPost();
+    } else {
+      counter--;
+      msg.textContent = counter;
+    }
+  }, 1000);
 }

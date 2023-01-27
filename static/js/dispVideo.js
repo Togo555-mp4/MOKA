@@ -1,6 +1,6 @@
 const picturepostUrl = "http://34.168.254.39/picturePost";
 const pictureGetUrl = "http://34.168.254.39/pictureGet";
-let countSignal = "STOP";
+let beforeSendSign = "NO";
 
 // 動画を写真にしたものを表示するcanvas要素
 const canvasSize = { w: 640, h: 480 };
@@ -29,17 +29,18 @@ function picturePost(){
         return response.text();
     })
     .then(function(text){
-        console.log(text);
-        if(text === "OK" && countSignal === "STOP"){
+        // console.log("now" + text);
+        // console.log("before" + beforeSendSign);
+        if(text == "OK" && text != beforeSendSign){
+            beforeSendSign = text;
             countStart();
-            countSignal = "START";
-        }else if(text === "NO"){
-            clearTimeout(timerfactor);
+        }else if(text == "NO"){
+            beforeSendSign = text;
+            clearInterval(timerfactor);
             msg.textContent = "";
-            counter = 4;
-            countSignal = "STOP";
+            counter = 5;
+            console.log("cancel");
         }
-        console.log(countSignal);
     }).catch(error => {
         console.log(error.message);
     });
@@ -51,7 +52,7 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
-        if(text != "NO"){
+        if(text != "ON"){
             console.log("pictureGet");
             // // コンテキストを取得する
             // imgCtx = viewImg.getContext('2d');
