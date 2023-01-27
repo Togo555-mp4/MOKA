@@ -37,7 +37,7 @@ def pictureGet():
         return 0
     elif(sendOK == "OK"):
         enc_data = ""
-        with open("after.jpg", "rb") as f:
+        with open("/var/www/html/MOKA/python/img/after.jpg", "rb") as f:
             enc_data = base64.b64decode(f.read())
         return enc_data.decode('utf-8')
 
