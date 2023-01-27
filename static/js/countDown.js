@@ -23,11 +23,11 @@ let timerfactor;
 let counter;
 function countStart() {
   counter = 4;
-  timerfactor = setInterval(function() {
+  timerfactor = setTimeout(function() {
     console.log("Count " + counter);
     if (counter == 0) {
-      //規定値になると要素を削除
-      clearInterval(timerfactor);
+      //規定値になるとタイマーストップ
+      clearTimeout(timerfactor);
       console.log("finish");
       msg.textContent = "";
       beforeSendSign = "NO";
@@ -37,5 +37,5 @@ function countStart() {
       counter--;
       msg.textContent = counter;
     }
-  }, 2000);
+  }, 1000);
 }
