@@ -24,4 +24,6 @@ setInterval(() => {
     // pictureGet();
     // 回答について
     // answerGet('http://35.230.86.157/answerGet');
+    // カウンターについて
+    countStartGet()
 }, 1000);

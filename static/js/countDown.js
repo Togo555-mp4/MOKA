@@ -5,6 +5,18 @@ const getUrl = "http://35.230.86.157/countStartGet";
 const box = document.getElementById('box');
 const msg = document.getElementById('msg');
 
+function countStartGet(){
+  fetch(url)
+  .then(function(response) {
+      return response.text();
+  })
+  .then(function(text) {
+    console.log(text)
+  }).catch(error => {
+    console.log(error.message)
+  });
+}
+
 function sendOkPost(){
   fetch(postUrl, {
     method: 'POST',
