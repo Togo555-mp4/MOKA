@@ -29,7 +29,7 @@ function countStart() {
       clearInterval(timerfactor);
       console.log("finish");
       msg.textContent = "";
-      beforeSendSign = "ON";
+      beforeSendSign = "NO";
       sendOkPost();
     } else {
       picturePost("countCheck");

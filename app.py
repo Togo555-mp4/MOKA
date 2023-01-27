@@ -26,19 +26,19 @@ def game():
 # def playerCheck():
 #     return "player"
 
-sendOK = "ON"
+sendOK = "NO"
 
 #表示画像のget
 @app.route("/pictureGet", methods=['GET'])
 def pictureGet():
     global sendOK
-    if(sendOK == "ON"):
-        return "ON"
+    if(sendOK == "NO"):
+        return "NO"
     elif(sendOK == "OK"):
         enc_data = ""
         with open("/var/www/html/MOKA/python/img/after.jpg", "rb") as f:
             enc_data = base64.b64decode(f.read())
-        sendOK = "ON"
+        sendOK = "NO"
         return enc_data
 
 #比較画像のpost
@@ -56,7 +56,7 @@ def picturePost():
     if(difference < 5):
         startOK = "OK"
     else:
-        startOK = "ON"
+        startOK = "NO"
     return startOK
 
 # 送信許可のpost
