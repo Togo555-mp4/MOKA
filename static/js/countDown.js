@@ -33,7 +33,6 @@ function countStart() {
       beforeSendSign = "NO";
       sendOkPost();
     } else {
-      picturePost("countCheck");
       counter--;
       msg.textContent = counter;
     }

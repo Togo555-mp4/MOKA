@@ -13,7 +13,7 @@ document.getElementById('canvasArea').appendChild(canvas);
 canvasCtx = canvas.getContext('2d');
 
 
-function picturePost(flag){
+function picturePost(){
     // video要素の映像をcanvasに描画する
     canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
     let base64 = this.canvas.toDataURL();
@@ -30,18 +30,13 @@ function picturePost(flag){
     })
     .then(function(text){
         console.log(flag + " " + text);
-        if(flag === "nomal"){
-            if(text === "OK" && text !== beforeStartSign){
-                beforeStartSign = text;
-                countStart();
-            }else if(text !== "NO"){
-                beforeStartSign = "NO";
-            }
-        }else if(flag === "countCheck"){
-            if(text === "NO"){
-                counter = 4;
-                console.log("cancel");
-            }
+        if(text === "OK" && text !== beforeStartSign){
+            beforeStartSign = text;
+            countStart();
+        }else if(text == "NO"){
+            beforeStartSign = "NO";
+            counter = 4;
+            console.log("cancel");
         }
     }).catch(error => {
         console.log(error.message);
