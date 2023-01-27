@@ -30,9 +30,12 @@ function picturePost(){
     })
     .then(function(text){
         if(text == "OK" && text != beforeSendSign){
+            beforeSendSign = text;
             countStart();
+        }else if(text == "OK"){
+            beforeSendSign = text;
+            clearInterval(timerfactor);
         }
-        beforeSendSign = text;
     }).catch(error => {
         console.log(error.message);
     });
