@@ -23,13 +23,17 @@ function picturePost(){
         body: JSON.stringify({
           img: postPicture
         }),
+    }).then(function(response) {
+        console.log("Picture Post Success");
+        return response.text();
     })
     .then(function(test) {
-        console.log("Picture Post Success");
         console.log(test);
         // if(test == "OK"){
         //     countStart();
         // }
+    }).catch(error => {
+        console.log(error.message)
     });
 }
 
