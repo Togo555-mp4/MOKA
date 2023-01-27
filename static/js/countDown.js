@@ -9,8 +9,14 @@ function sendOkPost(){
     method: 'POST',
     body: postPicture,
   })
-  .then(function() {
-    console.log("OK Post Success");
+  .then(function(response) {
+    console.log("SendOK Post Success");
+    return response.text();
+  })
+  .then(function(text) {
+      console.log(text + "(SendOK)");
+  }).catch(error => {
+      console.log(error.message);
   });
 }
 

@@ -26,13 +26,12 @@ def game():
 # def playerCheck():
 #     return "player"
 
-# sendOK = "ON"
+sendOK = "ON"
 
 #表示画像のget
 @app.route("/pictureGet", methods=['GET'])
 def pictureGet():
-    # global sendOK
-    sendOK = "OK"
+    global sendOK
     if(sendOK == "ON"):
         return 0
     elif(sendOK == "OK"):
@@ -59,12 +58,12 @@ def picturePost():
         startOK = "ON"
     return startOK
 
-#送信許可のpost
-# @app.route("/sendOkPost", methods=['POST'])
-# def sendOkPost():
-#     global sendOK
-#     sendOK = "OK"
-#     return "OK"
+# 送信許可のpost
+@app.route("/sendOkPost", methods=['POST'])
+def sendOkPost():
+    global sendOK
+    sendOK = "OK"
+    return "OK"
 
 #回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける

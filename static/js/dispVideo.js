@@ -25,13 +25,12 @@ function picturePost(){
         }),
     })
     .then(function(response) {
-        console.log("Picture Post Success");
         return response.text();
     })
     .then(function(text) {
-        console.log(text);
+        console.log(text + "(Picture)");
         if(text == "OK"){
-            // countStart()
+            countStart();
         }
     }).catch(error => {
         console.log(error.message);
@@ -44,16 +43,17 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
-        console.log(text);
-        // コンテキストを取得する
-        imgCtx = viewImg.getContext('2d');
-        //画像オブジェクトを生成
-        let img = new Image();
-        img.src = text;
-        //画像をcanvasに設定
-        img.onload = function(){
-            imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        }
+        console.log("pictureGet");
+        // console.log(text);
+        // // コンテキストを取得する
+        // imgCtx = viewImg.getContext('2d');
+        // //画像オブジェクトを生成
+        // let img = new Image();
+        // img.src = text;
+        // //画像をcanvasに設定
+        // img.onload = function(){
+        //     imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        // }
     });
 }
 
