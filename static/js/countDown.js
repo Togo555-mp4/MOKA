@@ -10,7 +10,6 @@ function sendOkPost(){
     body: "",
   })
   .then(function(response) {
-    console.log("SendOK Post Success");
     return response.text();
   })
   .then(function(text) {

@@ -25,11 +25,9 @@ function picturePost(){
         }),
     })
     .then(function(response) {
-        console.log("Picture Post Success");
         return response.text();
     })
     .then(function(text) {
-        console.log(text + "(Picture)");
         if(text == "OK"){
             countStart();
         }
@@ -44,7 +42,6 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
-        // console.log(text);
         if(text != "ON"){
             console.log("pictureGet");
             // // コンテキストを取得する
