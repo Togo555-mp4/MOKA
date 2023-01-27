@@ -1,4 +1,4 @@
-const postUrl = "http://35.230.86.157/picturePost";
+const picturepostUrl = "http://35.230.86.157/picturePost";
 const pictureGetUrl = "http://35.230.86.157/pictureGet";
 
 // 動画を写真にしたものを表示するcanvas要素
@@ -17,7 +17,7 @@ function picturePost(){
     canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
     let base64 = this.canvas.toDataURL();
     let postPicture = base64.replace(/^data:\w+\/\w+;base64,/, "");
-    fetch(postUrl, {
+    fetch(picturepostUrl, {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify({
