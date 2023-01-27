@@ -14,7 +14,6 @@ function playerGet(){
 }
 
 dispVideo()
-console.log("a")
 // dispImg()
 getOdai()
 
