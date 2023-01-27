@@ -34,6 +34,8 @@ function picturePost(flag){
             if(text === "OK" && text !== beforeStartSign){
                 beforeStartSign = text;
                 countStart();
+            }else if(text !== "NO"){
+                beforeStartSign = "NO";
             }
         }else{
             if(text === "NO"){
