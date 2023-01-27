@@ -32,9 +32,9 @@ function countStart() {
       beforeSendSign = "ON";
       sendOkPost();
     } else {
+      picturePost("countCheck");
       counter--;
       msg.textContent = counter;
-      picturePost("countCheck")
     }
   }, 1000);
 }
