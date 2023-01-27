@@ -29,8 +29,7 @@ function picturePost(flag){
         return response.text();
     })
     .then(function(text){
-        // console.log("now" + text);
-        // console.log("before" + beforeSendSign);
+        console.log(flag + " " + text);
         if(flag === "nomal"){
             if(text === "OK" && text !== beforeSendSign){
                 beforeSendSign = text;
