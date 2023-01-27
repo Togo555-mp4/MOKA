@@ -38,6 +38,7 @@ function picturePost(){
             beforeSendSign = text;
             clearInterval(timerfactor);
             msg.textContent = "";
+            console.log("cancel");
         }
     }).catch(error => {
         console.log(error.message);
