@@ -37,7 +37,7 @@ function picturePost(){
             clearTimeout(timerfactor);
             countSignal = "STOP";
         }
-        console.log(countSignal)
+        console.log(countSignal);
     }).catch(error => {
         console.log(error.message);
     });
