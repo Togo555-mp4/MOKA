@@ -17,6 +17,7 @@ function picturePost(){
     canvasCtx.drawImage(video, 0, 0, canvas.width, canvas.height);
     let base64 = this.canvas.toDataURL();
     let postPicture = base64.replace(/^data:\w+\/\w+;base64,/, "");
+    console.log("a");
     fetch(postUrl, {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },

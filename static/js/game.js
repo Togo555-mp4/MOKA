@@ -19,7 +19,6 @@ getOdai()
 
 // 1秒ごとに行うもの
 setInterval(() => {
-    console.log("a");
     // 画面表示について
     picturePost();
     // pictureGet();
