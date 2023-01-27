@@ -44,7 +44,7 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
-        console.log(text);
+        // console.log(text);
         if(text != "ON"){
             console.log("pictureGet");
             // // コンテキストを取得する
