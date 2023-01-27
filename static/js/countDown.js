@@ -6,7 +6,7 @@ const box = document.getElementById('box');
 const msg = document.getElementById('msg');
 
 function countStartGet(){
-  fetch(postUrl)
+  fetch(getUrl)
   .then(function(response) {
       return response.text();
   })
