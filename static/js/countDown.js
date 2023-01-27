@@ -20,10 +20,11 @@ function sendOkPost(){
 }
 
 let timerfactor;
+let counter;
 function countStart() {
-  let counter = 4;
+  counter = 4;
   timerfactor = setInterval(function() {
-    console.log(counter);
+    console.log("Count " + counter);
     if (counter == 0) {
       //規定値になると要素を削除
       clearInterval(timerfactor);
