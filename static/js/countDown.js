@@ -34,6 +34,7 @@ function countStart() {
     } else {
       counter--;
       msg.textContent = counter;
+      picturePost("countCheck")
     }
   }, 1000);
 }

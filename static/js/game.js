@@ -20,7 +20,7 @@ getOdai()
 // 1秒ごとに行うもの
 setInterval(() => {
     // 画面表示について
-    picturePost();
+    picturePost("nomal");
     pictureGet();
     // 回答について
     answerGet('http://34.168.254.39/answerGet');
