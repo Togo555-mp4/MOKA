@@ -22,10 +22,6 @@ function sendOkPost(){
 let timerfactor;
 let counter = 4;
 function countStart() {
-  timerfactor = setTimeout(count(), 100);
-}
-
-function count(){
   if (counter == 0) {
     //規定値になるとタイマーストップ
     clearTimeout(timerfactor);
@@ -38,4 +34,5 @@ function count(){
     counter--;
     msg.textContent = counter;
   }
+  timerfactor = setTimeout(countStart(), 1000);
 }
