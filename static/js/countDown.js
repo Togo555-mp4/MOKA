@@ -21,7 +21,7 @@ function sendOkPost(){
 
 let timerfactor;
 function countStart() {
-  let counter = 3;
+  let counter = 5;
   timerfactor = setInterval(function() {
     if (counter == 0) {
       //規定値になると要素を削除
@@ -31,5 +31,5 @@ function countStart() {
       counter--;
       msg.textContent = counter;
     }
-  }, 2000);
+  }, 1000);
 }
