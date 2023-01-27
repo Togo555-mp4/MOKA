@@ -56,7 +56,7 @@ def picturePost():
         startOK = "OK"
     else:
         startOK = "ON"
-    return 0
+    return startOK
 
 #カウント開始・中断合図のget
 @app.route("/countStartGet", methods=['GET'])
@@ -69,7 +69,7 @@ def countStartGet():
 def sendOkPost():
     global sendOK
     sendOK = "OK"
-    return 0
+    return "OK"
 
 #回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける

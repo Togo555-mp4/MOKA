@@ -24,8 +24,12 @@ function picturePost(){
           img: postPicture
         }),
     })
-    .then(function() {
+    .then(function(response) {
         console.log("Picture Post Success");
+        return response.text();
+    })
+    .then(function(text) {
+        console.log(text);
     }).catch(error => {
         console.log(error.message)
     });
