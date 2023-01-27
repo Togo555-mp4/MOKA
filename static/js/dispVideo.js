@@ -52,7 +52,7 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
-        if(text != "ON"){
+        if(text != "NO"){
             console.log("pictureGet");
             // // コンテキストを取得する
             // imgCtx = viewImg.getContext('2d');
