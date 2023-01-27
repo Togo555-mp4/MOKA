@@ -20,9 +20,8 @@ function sendOkPost(){
 }
 
 let timerfactor;
-let counter;
+let counter = 4;
 function countStart() {
-  counter = 4;
   timerfactor = setTimeout(count, 1000);
 }
 
