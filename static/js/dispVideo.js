@@ -34,7 +34,7 @@ function picturePost(){
         if(text == "OK" && text != beforeSendSign){
             beforeSendSign = text;
             countStart();
-        }else if(text == "OK"){
+        }else if(text == "NO"){
             beforeSendSign = text;
             clearInterval(timerfactor);
             msg.textContent = "";
