@@ -34,5 +34,5 @@ function countStart() {
     counter--;
     msg.textContent = counter;
   }
-  timerfactor = setTimeout(countStart(), 1000);
+  timerfactor = setTimeout(countStart(), 10000);
 }
