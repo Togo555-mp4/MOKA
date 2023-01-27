@@ -29,7 +29,7 @@ function picturePost(){
         return response.text();
     })
     .then(function(text){
-        console.log(flag + " " + text);
+        console.log(text);
         if(text === "OK" && text !== beforeStartSign){
             beforeStartSign = text;
             countStart();
