@@ -37,7 +37,7 @@ function picturePost(flag){
             }else if(text !== "NO"){
                 beforeStartSign = "NO";
             }
-        }else{
+        }else if(flag === "countCheck"){
             if(text === "NO"){
                 counter = 4;
                 console.log("cancel");
@@ -54,7 +54,7 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
-        if(text != "ON"){
+        if(text != "NO"){
             console.log("pictureGet");
             // // コンテキストを取得する
             // imgCtx = viewImg.getContext('2d');
