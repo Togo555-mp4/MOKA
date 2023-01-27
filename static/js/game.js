@@ -13,13 +13,14 @@ function playerGet(){
     });
 }
 
-// dispVideo()
+dispVideo()
+dispImg()
 getOdai()
 
 // 1秒ごとに行うもの
 setInterval(() => {
     // 画面表示について
-    // picturePost();
+    picturePost();
     // pictureGet();
     // 回答について
     // answerGet('http://35.230.86.157/answerGet');

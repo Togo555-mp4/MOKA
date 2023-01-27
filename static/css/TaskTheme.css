@@ -145,3 +145,8 @@ video{
   margin: 5px 0 10px 10px;
   font-size: 30px;
 }
+
+#testImg{
+  position:absolute;
+  z-index: 50;
+}

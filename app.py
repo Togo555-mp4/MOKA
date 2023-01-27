@@ -26,7 +26,6 @@ def game():
 # def playerCheck():
 #     return "player"
 
-startOK = "ON"
 sendOK = "ON"
 #表示画像のget
 @app.route("/pictureGet", methods=['GET'])
@@ -41,9 +40,9 @@ def pictureGet():
         return enc_data.decode('utf-8')
 
 #比較画像のpost
-@app.route("/picturePost", methods=['POST'])
+@app.route("/picturePost", methods=['GET','POST'])
 def picturePost():
-    global startOK
+    startOK = "ON"
     enc_data = request.json['img']
     dec_data = base64.b64decode(enc_data)
     with open("/var/www/html/MOKA/python/img/before.jpg", mode='wb') as f:
@@ -58,12 +57,6 @@ def picturePost():
         startOK = "OK"
     else:
         startOK = "ON"
-    return 0
-
-#カウント開始・中断合図のget
-@app.route("/countStartGet", methods=['GET'])
-def countStartGet():
-    global startOK
     return startOK
 
 #送信許可のpost

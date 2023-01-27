@@ -82,13 +82,3 @@ function getOdai(){
         console.log(error.message)
     });
 }
-
-// function testAnswerCheck(usetAnswer){
-//     tureAnswer = "あいうえお";
-//     let userPoint = document.getElementById('userPoint');
-//     if(usetAnswer == tureAnswer){
-//         // let userPoint = document.getElementById('userPoint');
-//         let newPoint = Number(userPoint.textContent) + 100;
-//         userPoint.textContent = newPoint;
-//     }
-// }

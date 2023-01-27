@@ -24,8 +24,12 @@ function picturePost(){
           img: postPicture
         }),
     })
-    .then(function() {
+    .then(function(test) {
         console.log("Picture Post Success");
+        console.log(test)
+        // if(test == "OK"){
+        //     countStart();
+        // }
     });
 }
 
@@ -42,7 +46,7 @@ function pictureGet(){
         img.src = text;
         //画像をcanvasに設定
         img.onload = function(){
-            imgCtx.drawImage(img, 0, 0, 200, 200);
+            imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
         }
     });
 }
@@ -63,11 +67,11 @@ function dispVideo(){
     })
 }
 
+//　取得した画像を表示するcanvas要素
+const viewImg = document.createElement('canvas');
 function dispImg(){
-    //　取得した画像を表示するcanvas要素
-    const viewImg = document.createElement('canvas');
     viewImg.id = 'viewImg';
     viewImg.width = canvasSize.w;
     viewImg.height = canvasSize.h;
-    document.getElementById('Area_Picture').appendChild(viewImg);
+    document.getElementById('testImg').appendChild(viewImg);
 }
