@@ -26,7 +26,6 @@ function countStart() {
 }
 
 function count(){
-  console.log("Count " + counter);
   if (counter == 0) {
     //規定値になるとタイマーストップ
     clearTimeout(timerfactor);
@@ -35,6 +34,7 @@ function count(){
     beforeSendSign = "NO";
     sendOkPost();
   } else {
+    console.log("Count " + counter);
     counter--;
     msg.textContent = counter;
   }
