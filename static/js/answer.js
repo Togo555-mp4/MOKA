@@ -68,7 +68,6 @@ function dispOdai(){
 }
 
 function getOdai(){
-    console.log("a")
     fetch("http://35.230.86.157/trueAnswer")
     .then(function(response) {
         return response.text();
