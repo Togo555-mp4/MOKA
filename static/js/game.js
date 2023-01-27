@@ -21,9 +21,7 @@ getOdai()
 setInterval(() => {
     // 画面表示について
     picturePost();
-    // pictureGet();
+    pictureGet();
     // 回答について
     // answerGet('http://35.230.86.157/answerGet');
-    // カウンターについて
-    // countStartGet();
 }, 1000);

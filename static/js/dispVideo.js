@@ -30,8 +30,11 @@ function picturePost(){
     })
     .then(function(text) {
         console.log(text);
+        if(text == "OK"){
+            // countStart()
+        }
     }).catch(error => {
-        console.log(error.message)
+        console.log(error.message);
     });
 }
 
@@ -41,6 +44,7 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
+        console.log(text);
         // コンテキストを取得する
         imgCtx = viewImg.getContext('2d');
         //画像オブジェクトを生成
@@ -65,7 +69,7 @@ function dispVideo(){
         video.srcObject = stream;
         video.play()
     }).catch(e => {
-    console.log(e)
+        console.log(e)
     })
 }
 

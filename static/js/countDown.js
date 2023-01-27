@@ -1,21 +1,8 @@
 const postUrl = "http://34.168.254.39/sendOkPost";
-const getUrl = "http://34.168.254.39/countStartGet";
 
 //要素
 const box = document.getElementById('box');
 const msg = document.getElementById('msg');
-
-function countStartGet(){
-  fetch(getUrl)
-  .then(function(response) {
-      return response.text();
-  })
-  .then(function(text) {
-    console.log(text)
-  }).catch(error => {
-    console.log(error.message)
-  });
-}
 
 function sendOkPost(){
   fetch(postUrl, {
