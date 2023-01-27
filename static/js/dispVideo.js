@@ -44,17 +44,19 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
-        console.log("pictureGet");
-        // console.log(text);
-        // // コンテキストを取得する
-        // imgCtx = viewImg.getContext('2d');
-        // //画像オブジェクトを生成
-        // let img = new Image();
-        // img.src = text;
-        // //画像をcanvasに設定
-        // img.onload = function(){
-        //     imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        // }
+        console.log(text);
+        if(text != "ON"){
+            console.log("pictureGet");
+            // // コンテキストを取得する
+            // imgCtx = viewImg.getContext('2d');
+            // //画像オブジェクトを生成
+            // let img = new Image();
+            // img.src = text;
+            // //画像をcanvasに設定
+            // img.onload = function(){
+            //     imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            // }
+        }
     });
 }
 

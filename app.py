@@ -33,7 +33,7 @@ sendOK = "ON"
 def pictureGet():
     global sendOK
     if(sendOK == "ON"):
-        return 0
+        return "ON"
     elif(sendOK == "OK"):
         enc_data = ""
         with open("/var/www/html/MOKA/python/img/after.jpg", "rb") as f:
