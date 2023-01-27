@@ -35,6 +35,8 @@ function picturePost(){
             countSignal = "START";
         }else if(text === "NO"){
             clearTimeout(timerfactor);
+            msg.textContent = "";
+            counter = 4;
             countSignal = "STOP";
         }
         console.log(countSignal);
