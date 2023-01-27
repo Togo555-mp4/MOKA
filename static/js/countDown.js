@@ -1,5 +1,5 @@
-const postUrl = "http://35.230.86.157/sendOkPost";
-const getUrl = "http://35.230.86.157/countStartGet";
+const postUrl = "http://34.168.254.39/sendOkPost";
+const getUrl = "http://34.168.254.39/countStartGet";
 
 //要素
 const box = document.getElementById('box');

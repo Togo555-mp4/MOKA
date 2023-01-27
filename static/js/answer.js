@@ -39,7 +39,7 @@ function answerPost(url) {
         body: formData,  // Postで送るパラメータを指定
     })
     .then(function() {  // Postした後に結果をGetする（コールバックなのでPostが実行完了してから実行される）
-        answerGet('http://35.230.86.157/answerGet');
+        answerGet('http://34.168.254.39/answerGet');
         console.log("Answer Post Success");
     }).catch(error => {
         console.log(error.message)
@@ -68,7 +68,7 @@ function dispOdai(){
 }
 
 function getOdai(){
-    fetch("http://35.230.86.157/trueAnswer")
+    fetch("http://34.168.254.39/trueAnswer")
     .then(function(response) {
         return response.text();
     })
