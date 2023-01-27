@@ -1,5 +1,6 @@
 const picturepostUrl = "http://34.168.254.39/picturePost";
 const pictureGetUrl = "http://34.168.254.39/pictureGet";
+beforeSendSign = "NO";
 
 // 動画を写真にしたものを表示するcanvas要素
 const canvasSize = { w: 640, h: 480 };
@@ -27,10 +28,11 @@ function picturePost(){
     .then(function(response) {
         return response.text();
     })
-    .then(function(text) {
-        if(text == "OK"){
+    .then(function(text){
+        if(text == "OK" && text != beforeSendSign){
             countStart();
         }
+        beforeSendSign = text;
     }).catch(error => {
         console.log(error.message);
     });

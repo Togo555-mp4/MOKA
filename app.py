@@ -38,6 +38,7 @@ def pictureGet():
         enc_data = ""
         with open("/var/www/html/MOKA/python/img/after.jpg", "rb") as f:
             enc_data = base64.b64decode(f.read())
+        sendOK = "ON"
         return enc_data
 
 #比較画像のpost

@@ -31,5 +31,5 @@ function countStart() {
       counter--;
       msg.textContent = counter;
     }
-  }, 1000);
+  }, 2000);
 }
