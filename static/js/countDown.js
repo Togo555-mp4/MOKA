@@ -7,7 +7,7 @@ const msg = document.getElementById('msg');
 function sendOkPost(){
   fetch(postUrl, {
     method: 'POST',
-    body: postPicture,
+    body: "",
   })
   .then(function(response) {
     console.log("SendOK Post Success");
