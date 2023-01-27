@@ -63,7 +63,7 @@ def picturePost():
 def sendOkPost():
     global sendOK
     sendOK = "OK"
-    return "OK"
+    return sendOK
 
 #回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける

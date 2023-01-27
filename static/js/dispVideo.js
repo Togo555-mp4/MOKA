@@ -25,6 +25,7 @@ function picturePost(){
         }),
     })
     .then(function(response) {
+        console.log("Picture Post Success");
         return response.text();
     })
     .then(function(text) {
