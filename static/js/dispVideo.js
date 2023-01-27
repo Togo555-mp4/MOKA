@@ -36,6 +36,7 @@ function picturePost(){
         }else if(text == "OK"){
             beforeSendSign = text;
             clearInterval(timerfactor);
+            msg.textContent = "";
         }
     }).catch(error => {
         console.log(error.message);
