@@ -22,7 +22,7 @@ function sendOkPost(){
 let timerfactor;
 let counter = 4;
 function countStart() {
-  timerfactor = setTimeout(count, 1000);
+  timerfactor = setTimeout(count(), 1000);
 }
 
 function count(){
