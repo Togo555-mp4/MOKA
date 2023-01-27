@@ -29,8 +29,8 @@ function picturePost(){
         return response.text();
     })
     .then(function(text){
-        console.log("now" + text);
-        console.log("before" + beforeSendSign);
+        // console.log("now" + text);
+        // console.log("before" + beforeSendSign);
         if(text == "OK" && text != beforeSendSign){
             beforeSendSign = text;
             countStart();

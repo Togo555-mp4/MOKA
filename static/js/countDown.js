@@ -23,6 +23,7 @@ let timerfactor;
 function countStart() {
   let counter = 5;
   timerfactor = setInterval(function() {
+    console.log(counter);
     if (counter == 0) {
       //規定値になると要素を削除
       clearInterval(timerfactor);
