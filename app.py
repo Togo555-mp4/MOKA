@@ -53,7 +53,7 @@ def picturePost():
     with open("/var/www/html/MOKA/python/img/after.jpg", mode='wb') as f:
         f.write(dec_data)
 
-    if(difference < 10):
+    if(difference < 15):
         startOK = "OK"
     else:
         startOK = "NO"

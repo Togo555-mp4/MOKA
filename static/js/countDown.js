@@ -28,9 +28,9 @@ function countStart() {
     if (counter == 0) {
       //規定値になると要素を削除
       clearInterval(timerfactor);
+      sendOkPost();
       msg.textContent = "";
       beforeSendSign = "NO";
-      sendOkPost();
     } else {
       counter--;
       msg.textContent = counter;
