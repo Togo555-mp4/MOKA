@@ -50,14 +50,12 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
-        if(text != "NO"){
-            console.log("pictureGet");
-            console.log(text);
+        if(text === "OK"){
             // コンテキストを取得する
             imgCtx = viewImg.getContext('2d');
             //画像オブジェクトを生成
             let img = new Image();
-            img.src = text;
+            img.src = "/var/www/html/MOKA/python/img/after.jpg";
             //画像をcanvasに設定
             img.onload = function(){
                 imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);

@@ -35,11 +35,13 @@ def pictureGet():
     if(sendOK == "NO"):
         return "NO"
     elif(sendOK == "OK"):
+        sendOK = "NO"
         enc_data = ""
         with open("/var/www/html/MOKA/python/img/after.jpg", "rb") as f:
             enc_data = base64.b64encode(f.read())
         sendOK = "NO"
-        return str(enc_data.decode('utf-8'))
+        # return {"img": enc_data.decode('utf-8')}
+        return "OK"
 
 #比較画像のpost
 @app.route("/picturePost", methods=['POST'])
