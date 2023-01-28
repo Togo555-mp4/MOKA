@@ -36,10 +36,10 @@ def pictureGet():
         return "NO"
     elif(sendOK == "OK"):
         sendOK = "NO"
-        enc_data = ""
-        with open("/var/www/html/MOKA/python/img/after.jpg", "rb") as f:
-            enc_data = base64.b64encode(f.read())
-        sendOK = "NO"
+        # enc_data = ""
+        # with open("/var/www/html/MOKA/python/img/after.jpg", "rb") as f:
+        #     enc_data = base64.b64encode(f.read())
+        # sendOK = "NO"
         # return {"img": enc_data.decode('utf-8')}
         return "OK"
 
