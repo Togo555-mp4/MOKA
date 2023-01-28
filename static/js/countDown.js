@@ -1,5 +1,5 @@
 const postUrl = "http://34.168.254.39/sendOkPost";
-const resetCount = 1;
+const resetCount = 4;
 
 //要素
 const box = document.getElementById('box');

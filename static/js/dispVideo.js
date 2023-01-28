@@ -52,6 +52,7 @@ function pictureGet(){
     .then(function(text) {
         if(text != "NO"){
             console.log("pictureGet");
+            console.log(text);
             // コンテキストを取得する
             imgCtx = viewImg.getContext('2d');
             //画像オブジェクトを生成
