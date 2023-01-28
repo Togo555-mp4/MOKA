@@ -29,8 +29,6 @@ function picturePost(){
         return response.text();
     })
     .then(function(text){
-        // console.log("now" + text);
-        // console.log("before" + beforeSendSign);
         if(text == "OK" && text != beforeSendSign){
             beforeSendSign = text;
             countStart();
@@ -38,7 +36,7 @@ function picturePost(){
             beforeSendSign = text;
             clearInterval(timerfactor);
             msg.textContent = "";
-            counter = 5;
+            counter = resetCount;
             console.log("cancel");
         }
     }).catch(error => {
@@ -54,15 +52,15 @@ function pictureGet(){
     .then(function(text) {
         if(text != "NO"){
             console.log("pictureGet");
-            // // コンテキストを取得する
-            // imgCtx = viewImg.getContext('2d');
-            // //画像オブジェクトを生成
-            // let img = new Image();
-            // img.src = text;
-            // //画像をcanvasに設定
-            // img.onload = function(){
-            //     imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            // }
+            // コンテキストを取得する
+            imgCtx = viewImg.getContext('2d');
+            //画像オブジェクトを生成
+            let img = new Image();
+            img.src = text;
+            //画像をcanvasに設定
+            img.onload = function(){
+                imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            }
         }
     });
 }

@@ -1,4 +1,5 @@
 const postUrl = "http://34.168.254.39/sendOkPost";
+const resetCount = 4;
 
 //要素
 const box = document.getElementById('box');
@@ -20,9 +21,9 @@ function sendOkPost(){
 }
 
 let timerfactor;
-let counter = 5;
+let counter = resetCount;
 function countStart() {
-  counter = 5;
+  counter = resetCount;
   timerfactor = setInterval(function() {
     console.log("count "+counter)
     if (counter == 0) {

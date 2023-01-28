@@ -14,7 +14,7 @@ function playerGet(){
 }
 
 dispVideo()
-// dispImg()
+dispImg()
 getOdai()
 
 // 1秒ごとに行うもの
