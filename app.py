@@ -49,10 +49,10 @@ def picturePost():
     startOK = ""
     enc_data = request.json['img']
     dec_data = base64.b64decode(enc_data)
-    with open("/var/www/html/MOKA/python/img/before.jpg", mode='wb') as f:
+    with open("/var/www/html/MOKA/static/img/before.jpg", mode='wb') as f:
         f.write(dec_data)
-    difference = compare_Pic.comparePic("/var/www/html/MOKA/python/img/before.jpg", "/var/www/html/MOKA/python/img/after.jpg")
-    with open("/var/www/html/MOKA/python/img/after.jpg", mode='wb') as f:
+    difference = compare_Pic.comparePic("/var/www/html/MOKA/static/img/before.jpg", "/var/www/html/MOKA/static/img/after.jpg")
+    with open("/var/www/html/MOKA/static/img/after.jpg", mode='wb') as f:
         f.write(dec_data)
 
     if(difference < 15):
