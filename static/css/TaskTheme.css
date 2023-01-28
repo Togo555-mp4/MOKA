@@ -148,5 +148,6 @@ video{
 
 #testImg{
   position:absolute;
+  top: 1000px;
   z-index: 50;
 }
