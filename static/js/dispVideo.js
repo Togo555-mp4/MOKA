@@ -85,7 +85,7 @@ const imgAria = document.createElement('div'); //css用
 const viewImg = document.createElement('canvas');
 function dispImg(){
     imgAria.id = 'imgAria';
-    document.getElementById('Area_Picture').appendChild(viewImg);
+    document.getElementById('Area_Picture').appendChild(imgAria);
     viewImg.id = 'viewImg';
     viewImg.width = canvasSize.w;
     viewImg.height = canvasSize.h;
