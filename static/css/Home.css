@@ -1,0 +1,26 @@
+body{
+    background-color:#00BFFF;
+    font-family: "HGP創英角ﾎﾟｯﾌﾟ体";
+    position: relative;
+}
+
+h1{
+    font-size: 100px;
+    text-align: center;
+}
+
+#nameForm{  
+    text-align: center;
+}
+
+#nameArea{
+    font-size: 40px;
+    font-family: "HGP創英角ﾎﾟｯﾌﾟ体";
+    margin: 10px 10px 10px 10px;
+}
+
+#nameBtn{
+    font-size: 40px;
+    font-family: "HGP創英角ﾎﾟｯﾌﾟ体";
+    margin: 10px 10px 10px 10px;
+}

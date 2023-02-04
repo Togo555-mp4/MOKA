@@ -49,10 +49,12 @@ function answerPost(url) {
 function answerCheck(userAnswer, dic){
     if(userAnswer === odai){
         if(dic === "post"){
-            sumPoint()
+            sumPoint();
         }else{
-            dispOdai()
+            dispOdai();
         }
+        sleep(3000);
+        finish();
     }
 }
 
@@ -75,7 +77,7 @@ function getOdai(){
     .then(function(text) {
         odai = text;
         console.log(odai)
-        if(whichDisp == "player"){
+        if(whichUser == "player"){
             dispOdai();
         }
     }).catch(error => {

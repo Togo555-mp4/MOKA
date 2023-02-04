@@ -12,23 +12,32 @@ app = Flask(__name__)
 def hello():
     return "Hello World"
 
-#最初の画面
+# 最初の画面
 @app.route("/index")
 def index():
     return render_template("index.html")
 
-#メインのゲーム画面
-@app.route("/game")
+# メインのゲーム画面(はじめジェスチャー側)
+@app.route("/gestureGame")
+def game():
+    return render_template("gestureView.html")
+
+# メインのゲーム画面(はじめ回答者側)
+@app.route("/playerGame")
 def game():
     return render_template("playerView.html")
 
-# @app.route("/playerCheck")
+# @app.route("/userEntry", methods=['POST'])
+# def userEntry():
+#     data = ""
+#     return data
+
+# @app.route("/userCheck")
 # def playerCheck():
 #     return "player"
 
 sendOK = "NO"
-
-#表示画像のget
+# 表示画像のget
 @app.route("/pictureGet", methods=['GET'])
 def pictureGet():
     global sendOK
@@ -43,7 +52,7 @@ def pictureGet():
         # return {"img": enc_data.decode('utf-8')}
         return "OK"
 
-#比較画像のpost
+# 比較画像のpost
 @app.route("/picturePost", methods=['POST'])
 def picturePost():
     startOK = ""
@@ -68,7 +77,7 @@ def sendOkPost():
     sendOK = "OK"
     return sendOK
 
-#回答データのget
+# 回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
 def answerGet():
     data = connect_Maria.getMariadb("SELECT comment from answers where comid=(select MAX(comid) from answers);")
@@ -78,7 +87,7 @@ def answerGet():
         result = data[0][0]
     return result
 
-#回答データのpost
+# 回答データのpost
 postNum = 1
 @app.route('/answerPost', methods=['POST'])
 def answerPost():
@@ -87,7 +96,7 @@ def answerPost():
     connect_Maria.postMariadb("INSERT INTO answers (userid, comment) VALUES(1, '" + answer + "');")
     return answer
 
-#正解データのget
+# 正解データのget
 @app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
     ans = connect_Maria.getMariadb("SELECT question FROM questions ORDER BY RAND() LIMIT 1;")
@@ -97,6 +106,6 @@ def trueAnswer():
         result = ans[0][0]
     return result
     
-#サーバ起動
+# サーバ起動
 if __name__ == "__main__":
     app.run(debug=True)

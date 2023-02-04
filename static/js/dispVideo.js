@@ -86,5 +86,5 @@ function dispImg(){
     viewImg.id = 'viewImg';
     viewImg.width = canvasSize.w;
     viewImg.height = canvasSize.h;
-    document.getElementById('testImg').appendChild(viewImg);
+    document.getElementById('Area_Picture').appendChild(viewImg);
 }
