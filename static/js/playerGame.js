@@ -23,17 +23,14 @@ function finish(){
     }
     // 要素削除
     let parent = document.getElementById('Area_Picture');
-    // let target
-    // if(whichUser === "gesture"){
-    //     target = document.getElementById('video');
-    // }else{
-    //     target = document.getElementById('viewImg');
-    // }
-    for (let i = parent.childNodes.length1; i>=0; i--) {
-        parent.removeChild(parent.childNodes[1]);
-    }
+    parent.innerHTML = "";
+    
     // 次のゲームを開始
-    setTimeout(gameActivity(), 2000);
+    setTimeout(() => {
+        console.log("nextGameStart")
+        playerGet();
+        gameActivity();
+    }, 10000);
 }
 
 function gameActivity(){

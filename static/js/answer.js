@@ -55,7 +55,7 @@ function answerCheck(userAnswer, dic){
         }else{
             dispOdai();
             clearInterval(gameInterval);
-            setTimeout(finish(), 2000);
+            setTimeout(finish(), 5000);
         }
     }
 }
