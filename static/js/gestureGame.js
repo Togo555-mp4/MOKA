@@ -30,13 +30,14 @@ function finish(){
     //     target = document.getElementById('viewImg');
     // }
     for (let i = parent.childNodes.length1; i>=0; i--) {
+        console.log(parent.childNodes[1]);
         parent.removeChild(parent.childNodes[1]);
     }
     // 次のゲームを開始
     setTimeout(() => {
+        console.log("nextGameStart")
         playerGet();
         gameActivity();
-
     }, 2000);
 }
 
