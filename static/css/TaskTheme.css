@@ -30,11 +30,7 @@ video{
   height:540px;
   z-index: 30;
   position: absolute;
-}
-
-#viewImg{
   text-align: center;
-  left: 100px;
 }
 
 #canvasArea{
