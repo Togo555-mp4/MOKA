@@ -59,7 +59,6 @@ function pictureGet(){
             img.src = "../static/img/after.jpg";
             //画像をcanvasに設定
             img.onload = function(){
-                console.log("onload");
                 imgCtx.drawImage(img, 0, 0, dispImgSize.w, dispImgSize.h);
             }
         }
