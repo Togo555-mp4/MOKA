@@ -79,7 +79,7 @@ function getOdai(){
     .then(function(text) {
         odai = text;
         console.log(odai)
-        if(whichUser == "player"){
+        if(whichUser == "gesture"){
             dispOdai();
         }
     }).catch(error => {
