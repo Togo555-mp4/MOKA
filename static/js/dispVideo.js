@@ -3,7 +3,7 @@ const pictureGetUrl = "http://34.127.34.164/pictureGet";
 let beforeSendSign = "NO";
 
 // 動画を写真にしたものを表示するcanvas要素
-const canvasSize = { w: 640, h: 480 };
+const canvasSize = { w: 960, h: 540 };
 const canvas = document.createElement('canvas');
 canvas.id = 'canvas';
 canvas.width = canvasSize.w;
@@ -81,10 +81,13 @@ function dispVideo(){
 }
 
 //　取得した画像を表示するcanvas要素
+const imgAria = document.createElement('div'); //css用
 const viewImg = document.createElement('canvas');
 function dispImg(){
+    imgAria.id = 'imgAria';
+    document.getElementById('Area_Picture').appendChild(viewImg);
     viewImg.id = 'viewImg';
     viewImg.width = canvasSize.w;
     viewImg.height = canvasSize.h;
-    document.getElementById('Area_Picture').appendChild(viewImg);
+    document.getElementById('imgAria').appendChild(viewImg);
 }

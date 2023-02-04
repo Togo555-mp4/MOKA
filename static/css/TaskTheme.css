@@ -30,6 +30,9 @@ video{
   height:540px;
   z-index: 30;
   position: absolute;
+}
+
+#imgAria{
   text-align: center;
 }
 
