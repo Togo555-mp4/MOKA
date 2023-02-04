@@ -53,13 +53,13 @@ function pictureGet(){
         if(text === "OK"){
             //画像オブジェクトを生成
             let img = new Image();
-            img.src = "../static/img/after.jpg";
             //画像をcanvasに設定
             img.onload = function(){
                 // コンテキストを取得する
                 imgCtx = viewImg.getContext('2d');
                 imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
             }
+            img.src = "../static/img/after.jpg";
         }
     });
 }
