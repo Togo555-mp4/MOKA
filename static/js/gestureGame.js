@@ -29,6 +29,7 @@ function gameActivity(){
     // 1秒ごとに行うもの
     gameInterval = setInterval(() => {
         // 画面表示について
+        console.log(whichUser);
         if(whichUser === "gesture"){
             picturePost();
         }else{
