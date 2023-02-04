@@ -53,7 +53,7 @@ function answerCheck(userAnswer, dic){
         }else{
             dispOdai();
         }
-        sleep(3000);
+        postFinish();
         finish();
     }
 }

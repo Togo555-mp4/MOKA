@@ -11,6 +11,31 @@ function playerGet(){
     }
 }
 
+function postFinish(){
+    fetch("http://34.127.34.164/finishPost", {
+        method: 'POST',
+        body: "",
+    }).then(function(response) {
+        return response.text();
+    }).then(function(text) {
+        console.log(text);
+    }).catch(error => {
+        console.log(error.message);
+    });
+}
+
+function getFinish(){
+    fetch("http://34.127.34.164/finishGet", {
+    }).then(function(response) {
+        return response.text();
+    }).then(function(text) {
+        console.log(text);
+        finish();
+    }).catch(error => {
+        console.log(error.message);
+    });
+}
+
 function finish(){
     clearInterval(gameInterval);
     gameCome = false;
@@ -29,9 +54,9 @@ function gameActivity(){
     // 1秒ごとに行うもの
     gameInterval = setInterval(() => {
         // 画面表示について
-        console.log(whichUser);
         if(whichUser === "gesture"){
             picturePost();
+            getFinsh();
         }else{
             pictureGet();
         }

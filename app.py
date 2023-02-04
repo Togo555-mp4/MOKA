@@ -36,6 +36,25 @@ def playerGame():
 # def playerCheck():
 #     return "player"
 
+gameFinsh = "noFinish"
+#ゲームの終了post
+@app.route("/finishPost", methods=['POST'])
+def finishPost():
+    global gameFinsh
+    gameFinsh = "finish"
+    return gameFinsh
+
+#ゲームの終了get
+@app.route("/finishGet", methods=['Get'])
+def finishGet():
+    global gameFinsh
+    if(gameFinsh == "noFinish"):
+        return "NO"
+    elif(gameFinsh == "finish"):
+        gameFinsh == "noFinish"
+        return "finish"
+
+
 sendOK = "NO"
 # 表示画像のget
 @app.route("/pictureGet", methods=['GET'])
