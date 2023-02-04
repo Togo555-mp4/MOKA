@@ -16,8 +16,6 @@ def hello():
 # 最初の画面
 @app.route("/index")
 def index():
-    global answerNum
-    answerNum = random.randrange(11)
     return render_template("index.html")
 
 # メインのゲーム画面(はじめジェスチャー側)
@@ -112,7 +110,7 @@ def answerPost():
     return answer
 
 # 正解データのget
-# answerNum = random.randrange(11)
+answerNum = random.randrange(11)
 @app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
     global answerNum
