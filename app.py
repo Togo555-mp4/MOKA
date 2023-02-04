@@ -19,12 +19,12 @@ def index():
 
 # メインのゲーム画面(はじめジェスチャー側)
 @app.route("/gestureGame")
-def game():
+def gestureGame():
     return render_template("gestureView.html")
 
 # メインのゲーム画面(はじめ回答者側)
 @app.route("/playerGame")
-def game():
+def playerGame():
     return render_template("playerView.html")
 
 # @app.route("/userEntry", methods=['POST'])
