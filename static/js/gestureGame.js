@@ -3,10 +3,12 @@ let gameCome = true;
 
 function playerGet(){
     if(whichUser === "gesture"){
+        document.getElementById("pose").textContent = "ポーズを決めよう";
         document.getElementById("Area_Countdown").style.visibility = "visible";
         document.getElementById("answerForm").style.visibility = "hidden";
         dispVideo();
     }else{
+        document.getElementById("pose").textContent = "このポーズが何か書こう！";
         document.getElementById("answerForm").style.visibility = "visible";
         document.getElementById("Area_Countdown").style.visibility = "hidden";
         dispImg();
