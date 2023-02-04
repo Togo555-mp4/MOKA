@@ -19,6 +19,15 @@ function finish(){
     }else{
         whichUser = "gesture";
     }
+    // 要素削除
+    let parent = document.querySelector('Area_Picture');
+    let target
+    if(whichUser === "gesture"){
+        target = document.querySelector('video');
+    }else{
+        target = document.querySelector('viewImg');
+    }
+    parent.removeChild(target);
     // 次のゲームを開始
     gameActivity();
 }
@@ -34,7 +43,7 @@ function gameActivity(){
             pictureGet();
         }
         // 回答について
-        // answerGet('http://34.127.34.164/answerGet');
+        answerGet('http://34.127.34.164/answerGet');
     }, 1000);
 }
 
