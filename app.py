@@ -7,6 +7,12 @@ from python import connect_Maria, compare_Pic
 
 # Flaskオブジェクトの生成
 app = Flask(__name__)
+# 生成する答えの番号
+answerNum = random.randrange(11)
+# 画像の送信許可
+sendOK = "NO"
+# 回答の送信許可
+answerFirst = "NO"
 
 #「/」へアクセスがあった場合に、"Hello World"の文字列を返す
 @app.route("/")
@@ -28,28 +34,13 @@ def gestureGame():
 def playerGame():
     return render_template("playerView.html")
 
-# gameFinsh = "noFinish"
 #ゲームの終了post
 @app.route("/finishPost", methods=['POST'])
 def finishPost():
     global answerNum
     answerNum = random.randrange(11)
-    # global gameFinsh
-    # gameFinsh = "finish"
     return "finish"
 
-# #ゲームの終了get
-# @app.route("/finishGet", methods=['Get'])
-# def finishGet():
-#     global gameFinsh
-#     if(gameFinsh == "noFinish"):
-#         return "NO"
-#     elif(gameFinsh == "finish"):
-#         gameFinsh == "noFinish"
-#         return "finish"
-
-
-sendOK = "NO"
 # 表示画像のget
 @app.route("/pictureGet", methods=['GET'])
 def pictureGet():
@@ -93,24 +84,26 @@ def sendOkPost():
 # 回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
 def answerGet():
-    data = connect_Maria.getMariadb("SELECT comment from answers where comid=(select MAX(comid) from answers);")
-    if data is None:
-        result = "data is none"
+    if(answerFirst):
+        data = connect_Maria.getMariadb("SELECT comment from answers where comid=(select MAX(comid) from answers);")
+        if data is None:
+            result = "data is none"
+        else:
+            result = data[0][0]
+        return result
     else:
-        result = data[0][0]
-    return result
+        return "data is none"
 
 # 回答データのpost
-postNum = 1
 @app.route('/answerPost', methods=['POST'])
 def answerPost():
-    global postNum
+    global answerFirst
     answer = request.form['answer']
     connect_Maria.postMariadb("INSERT INTO answers (userid, comment) VALUES(1, '" + answer + "');")
+    answerFirst = True
     return answer
 
 # 正解データのget
-answerNum = random.randrange(11)
 @app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
     global answerNum
