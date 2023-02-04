@@ -38,7 +38,9 @@ def playerGame():
 @app.route("/finishPost", methods=['POST'])
 def finishPost():
     global answerNum
+    global answerFirst
     answerNum = random.randrange(11)
+    answerFirst = "NO"
     return "finish"
 
 # 表示画像のget
@@ -84,7 +86,7 @@ def sendOkPost():
 # 回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
 def answerGet():
-    if(answerFirst):
+    if(answerFirst == "NO"):
         data = connect_Maria.getMariadb("SELECT comment from answers where comid=(select MAX(comid) from answers);")
         if data is None:
             result = "data is none"
@@ -100,7 +102,7 @@ def answerPost():
     global answerFirst
     answer = request.form['answer']
     connect_Maria.postMariadb("INSERT INTO answers (userid, comment) VALUES(1, '" + answer + "');")
-    answerFirst = True
+    answerFirst = "OK"
     return answer
 
 # 正解データのget
