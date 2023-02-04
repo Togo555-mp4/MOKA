@@ -22,12 +22,12 @@ function finish(){
         whichUser = "gesture";
     }
     // 要素削除
-    let parent = document.querySelector('Area_Picture');
+    let parent = document.getElementById('Area_Picture');
     let target
     if(whichUser === "gesture"){
-        target = document.querySelector('#video');
+        target = document.getElementById('video');
     }else{
-        target = document.querySelector('#viewImg');
+        target = document.getElementById('viewImg');
     }
     parent.removeChild(target);
     // 次のゲームを開始

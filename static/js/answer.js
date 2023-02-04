@@ -11,7 +11,6 @@ function answerGet(url){
         return response.text();
     })
     .then(function(text) {
-        console.log(text)
         if(text !== "data is none" & text !== getAnswerData){
             // 新しいHTML要素を作成
             let newElement = document.createElement('p');
@@ -53,10 +52,11 @@ function answerCheck(userAnswer, dic){
         if(dic === "post"){
             sumPoint();
             postFinish();
+        }else{
+            dispOdai();
+            clearInterval(gameInterval);
+            setTimeout(finish(), 2000);
         }
-        dispOdai();
-        clearInterval(gameInterval);
-        setTimeout(finish(), 1000);
     }
 }
 
