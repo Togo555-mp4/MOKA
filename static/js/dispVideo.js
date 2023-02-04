@@ -3,7 +3,7 @@ const pictureGetUrl = "http://34.127.34.164/pictureGet";
 let beforeSendSign = "NO";
 
 // 動画を写真にしたものを表示するcanvas要素
-const canvasSize = { w: 960, h: 540 };
+const canvasSize = { w: 640, h: 480 };
 const canvas = document.createElement('canvas');
 canvas.id = 'canvas';
 canvas.width = canvasSize.w;
