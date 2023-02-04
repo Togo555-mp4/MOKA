@@ -1,4 +1,4 @@
-const postUrl = "http://34.168.254.39/sendOkPost";
+const postUrl = "http://34.127.34.164/sendOkPost";
 const resetCount = 4;
 
 //要素

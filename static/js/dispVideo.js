@@ -1,5 +1,5 @@
-const picturepostUrl = "http://34.168.254.39/picturePost";
-const pictureGetUrl = "http://34.168.254.39/pictureGet";
+const picturepostUrl = "http://34.127.34.164/picturePost";
+const pictureGetUrl = "http://34.127.34.164/pictureGet";
 let beforeSendSign = "NO";
 
 // 動画を写真にしたものを表示するcanvas要素

@@ -36,7 +36,7 @@ function gameActivity(){
             pictureGet();
         }
         // 回答について
-        // answerGet('http://34.168.254.39/answerGet');
+        // answerGet('http://34.127.34.164/answerGet');
     }, 1000);
 }
 
