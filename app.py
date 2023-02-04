@@ -29,11 +29,15 @@ def index():
 # メインのゲーム画面(はじめジェスチャー側)
 @app.route("/gestureGame")
 def gestureGame():
+    global answerFirst
+    answerFirst = "NO"
     return render_template("gestureView.html")
 
 # メインのゲーム画面(はじめ回答者側)
 @app.route("/playerGame")
 def playerGame():
+    global answerFirst
+    answerFirst = "NO"
     return render_template("playerView.html")
 
 #ゲームの終了post
