@@ -23,14 +23,14 @@ function finish(){
     }
     // 要素削除
     let parent = document.getElementById('Area_Picture');
-    let target
-    if(whichUser === "gesture"){
-        target = document.getElementById('video');
-    }else{
-        target = document.getElementById('viewImg');
-    }
-    for (let i = target.length; i--;) {
-        parent.removeChild(target[i]);
+    // let target
+    // if(whichUser === "gesture"){
+    //     target = document.getElementById('video');
+    // }else{
+    //     target = document.getElementById('viewImg');
+    // }
+    for (let i = parent.childNodes.length1; i>=0; i--) {
+        parent.removeChild(parent.childNodes[1]);
     }
     // 次のゲームを開始
     setTimeout(gameActivity(), 2000);
