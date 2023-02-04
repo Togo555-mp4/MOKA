@@ -30,7 +30,7 @@ function finish(){
         console.log("nextGameStart")
         playerGet();
         gameActivity();
-    }, 5000);
+    }, 10000);
 }
 
 function gameActivity(){
