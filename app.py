@@ -114,7 +114,7 @@ answerNum = random.randrange(11)
 @app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
     global answerNum
-    ans = connect_Maria.getMariadb("SELECT question FROM questions LIMIT 1 OFFSET" + str(answerNum) + ";")
+    ans = connect_Maria.getMariadb("SELECT question FROM questions LIMIT 1 OFFSET " + str(answerNum) + ";")
     if ans is None:
         result = "ans is none"
     else:
