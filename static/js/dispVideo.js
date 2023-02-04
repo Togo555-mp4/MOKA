@@ -56,10 +56,10 @@ function pictureGet(){
             //画像オブジェクトを生成
             let img = new Image();
             img.src = "../static/img/after.jpg";
-            console.log(img)
+            console.log(img);
             //画像をcanvasに設定
             img.onload = function(){
-                imgCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                imgCtx.drawImage(img, 0, 0, 960, 540);
             }
         }
     });
