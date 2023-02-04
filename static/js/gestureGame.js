@@ -33,7 +33,11 @@ function finish(){
         parent.removeChild(parent.childNodes[1]);
     }
     // 次のゲームを開始
-    setTimeout(gameActivity(), 2000);
+    setTimeout(() => {
+        playerGet();
+        gameActivity();
+
+    }, 2000);
 }
 
 function gameActivity(){
