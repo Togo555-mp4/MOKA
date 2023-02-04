@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>HOME</title>
-        <link rel="stylesheet" href="C:\Users\5t1ng\システム\classSystem\MOKA\static\css\HOME.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/Home.css') }}">
     </head>
     <body>
         <h1>M O K A</h1>
@@ -12,6 +12,6 @@
             <input type="button" id="nameBtn" value="ゲームスタート" onClick="gameStartPost('http://34.168.254.39/userEntry')">
         </form>
 
-        <script src="C:\Users\5t1ng\システム\classSystem\MOKA\static\js\startActivity.js"></script>
+        <script src="{{ url_for('static', filename='js/startActivity.js') }}"></script>
     </body>
 </html>
