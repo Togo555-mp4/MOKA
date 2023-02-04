@@ -55,7 +55,7 @@ video{
   position: absolute;
 }
 
-.pose{
+#pose{
   margin:5px 5px;
   font-weight:800;
   z-index: 30;
@@ -87,6 +87,12 @@ video{
   left:1000px;
   font-weight:800;
   text-align: center;
+}
+
+#pointTitle{
+  margin:5px 5px;
+  font-weight:800;
+  z-index: 30;
 }
 
 #userPoint{

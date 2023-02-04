@@ -16,14 +16,14 @@
 
   <!-- 獲得した点数の表示 -->
   <div id="Area_Score">
-    <div class="pose">獲得ポイント</div>
+    <div id="pointTitle">獲得ポイント</div>
     <div id="userPoint">0</div>
     <div>pt</div>
   </div>
 
   <!-- 解答の入力 -->
   <div id="Area_AnsInput">
-    <div class="pose">このポーズが何か書こう！</div>
+    <div id="pose">このポーズが何か書こう！</div>
     <form id="answerForm">
       <input type="text" id="writeArea" placeholder="ここに記入してね" name="answer">
       <input type="button" id="btn" value="送信" onClick="answerPost('http://34.127.34.164/answerPost')">
