@@ -3,10 +3,12 @@ let gameCome = true;
 
 function playerGet(){
     if(whichUser === "gesture"){
-        document.getElementById("answerForm").style.display ="none";
+        document.getElementById("Area_Countdown").style.visibility = "visible";
+        document.getElementById("answerForm").style.visibility = "hidden";
         dispVideo();
     }else{
-        document.getElementById("Area_Countdown").style.display ="none";
+        document.getElementById("answerForm").style.visibility = "visible";
+        document.getElementById("Area_Countdown").style.visibility = "hidden";
         dispImg();
     }
 }
@@ -23,13 +25,13 @@ function finish(){
     let parent = document.querySelector('Area_Picture');
     let target
     if(whichUser === "gesture"){
-        target = document.querySelector('video');
+        target = document.querySelector('#video');
     }else{
-        target = document.querySelector('viewImg');
+        target = document.querySelector('#viewImg');
     }
     parent.removeChild(target);
     // 次のゲームを開始
-    gameActivity();
+    setTimeout(gameActivity(), 2000);
 }
 
 function gameActivity(){

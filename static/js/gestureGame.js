@@ -25,13 +25,13 @@ function finish(){
     let parent = document.querySelector('Area_Picture');
     let target
     if(whichUser === "gesture"){
-        target = document.querySelector('video');
+        target = document.querySelector('#video');
     }else{
-        target = document.querySelector('viewImg');
+        target = document.querySelector('#viewImg');
     }
     parent.removeChild(target);
     // 次のゲームを開始
-    gameActivity();
+    setTimeout(gameActivity(), 2000);
 }
 
 function gameActivity(){
