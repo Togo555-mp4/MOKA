@@ -29,7 +29,9 @@ function finish(){
     }else{
         target = document.getElementById('viewImg');
     }
-    parent.removeChild(target);
+    for (let i = target.length; i--;) {
+        parent.removeChild(target[i]);
+    }
     // 次のゲームを開始
     setTimeout(gameActivity(), 2000);
 }
