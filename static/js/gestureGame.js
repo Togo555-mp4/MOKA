@@ -2,12 +2,12 @@ let whichUser = "gesture";
 let gameCome = true;
 
 function playerGet(){
-    if(whichUser === "player"){
+    if(whichUser === "gesture"){
         document.getElementById("answerForm").style.display ="none";
-        dispImg();
+        dispVideo();
     }else{
         document.getElementById("Area_Countdown").style.display ="none";
-        dispVideo();
+        dispImg();
     }
 }
 
@@ -15,10 +15,10 @@ function finish(){
     clearInterval(gameInterval);
     gameCome = false;
     // 次のゲームの準備
-    if(whichUser === "player"){
-        whichUser = "answer";
-    }else{
+    if(whichUser === "gesture"){
         whichUser = "player";
+    }else{
+        whichUser = "gesture";
     }
     // 次のゲームを開始
     gameActivity();
@@ -29,7 +29,7 @@ function gameActivity(){
     // 1秒ごとに行うもの
     gameInterval = setInterval(() => {
         // 画面表示について
-        if(whichUser === "player"){
+        if(whichUser === "gesture"){
             picturePost();
         }else{
             pictureGet();
