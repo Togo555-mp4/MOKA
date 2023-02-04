@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request
 # base64のインポート
 import base64
+import random
 from python import connect_Maria, compare_Pic
 
 # Flaskオブジェクトの生成
@@ -15,6 +16,8 @@ def hello():
 # 最初の画面
 @app.route("/index")
 def index():
+    global answerNum
+    answerNum = random.randrange(11)
     return render_template("index.html")
 
 # メインのゲーム画面(はじめジェスチャー側)
@@ -27,32 +30,25 @@ def gestureGame():
 def playerGame():
     return render_template("playerView.html")
 
-# @app.route("/userEntry", methods=['POST'])
-# def userEntry():
-#     data = ""
-#     return data
-
-# @app.route("/userCheck")
-# def playerCheck():
-#     return "player"
-
-gameFinsh = "noFinish"
+# gameFinsh = "noFinish"
 #ゲームの終了post
 @app.route("/finishPost", methods=['POST'])
 def finishPost():
-    global gameFinsh
-    gameFinsh = "finish"
-    return gameFinsh
+    global answerNum
+    answerNum = random.randrange(11)
+    # global gameFinsh
+    # gameFinsh = "finish"
+    return "finish"
 
-#ゲームの終了get
-@app.route("/finishGet", methods=['Get'])
-def finishGet():
-    global gameFinsh
-    if(gameFinsh == "noFinish"):
-        return "NO"
-    elif(gameFinsh == "finish"):
-        gameFinsh == "noFinish"
-        return "finish"
+# #ゲームの終了get
+# @app.route("/finishGet", methods=['Get'])
+# def finishGet():
+#     global gameFinsh
+#     if(gameFinsh == "noFinish"):
+#         return "NO"
+#     elif(gameFinsh == "finish"):
+#         gameFinsh == "noFinish"
+#         return "finish"
 
 
 sendOK = "NO"
@@ -116,9 +112,11 @@ def answerPost():
     return answer
 
 # 正解データのget
+# answerNum = random.randrange(11)
 @app.route("/trueAnswer", methods=['GET'])
 def trueAnswer():
-    ans = connect_Maria.getMariadb("SELECT question FROM questions ORDER BY RAND() LIMIT 1;")
+    global answerNum
+    ans = connect_Maria.getMariadb("SELECT question FROM questions LIMIT 1 OFFSET" + str(answerNum) + ";")
     if ans is None:
         result = "ans is none"
     else:

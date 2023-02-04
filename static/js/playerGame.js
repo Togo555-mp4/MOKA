@@ -3,43 +3,15 @@ let gameCome = true;
 
 function playerGet(){
     if(whichUser === "gesture"){
-        document.getElementById("Area_Countdown").style.visibility = "visible";
-        document.getElementById("answerForm").style.visibility = "hidden";
+        document.getElementById("answerForm").style.display ="none";
         dispVideo();
     }else{
-        document.getElementById("answerForm").style.visibility = "visible";
-        document.getElementById("Area_Countdown").style.visibility = "hidden";
+        document.getElementById("Area_Countdown").style.display ="none";
         dispImg();
     }
 }
 
-function postFinish(){
-    fetch("http://34.127.34.164/finishPost", {
-        method: 'POST',
-        body: "",
-    }).then(function(response) {
-        return response.text();
-    }).then(function(text) {
-        console.log(text);
-    }).catch(error => {
-        console.log(error.message);
-    });
-}
-
-function getFinish(){
-    fetch("http://34.127.34.164/finishGet", {
-    }).then(function(response) {
-        return response.text();
-    }).then(function(text) {
-        console.log(text);
-        finish();
-    }).catch(error => {
-        console.log(error.message);
-    });
-}
-
 function finish(){
-    clearInterval(gameInterval);
     gameCome = false;
     // 次のゲームの準備
     if(whichUser === "gesture"){
@@ -58,7 +30,6 @@ function gameActivity(){
         // 画面表示について
         if(whichUser === "gesture"){
             picturePost();
-            getFinsh();
         }else{
             pictureGet();
         }
@@ -71,3 +42,28 @@ if(gameCome){
     playerGet();
     gameActivity();
 }
+
+function postFinish(){
+    fetch("http://34.127.34.164/finishPost", {
+        method: 'POST',
+        body: "",
+    }).then(function(response) {
+        return response.text();
+    }).then(function(text) {
+        console.log(text);
+    }).catch(error => {
+        console.log(error.message);
+    });
+}
+
+// function getFinish(){
+//     fetch("http://34.127.34.164/finishGet", {
+//     }).then(function(response) {
+//         return response.text();
+//     }).then(function(text) {
+//         console.log(text);
+//         finish();
+//     }).catch(error => {
+//         console.log(error.message);
+//     });
+// }

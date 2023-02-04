@@ -3,6 +3,7 @@ const answerForm = document.querySelector('#answerForm');
 const btn = document.querySelector('#btn');
 
 let odai;
+let getAnswerData = "ああああ";
 
 function answerGet(url){
     fetch(url)
@@ -11,7 +12,7 @@ function answerGet(url){
     })
     .then(function(text) {
         console.log(text)
-        if(text !== "data is none"){
+        if(text !== "data is none" & text !== getAnswerData){
             // 新しいHTML要素を作成
             let newElement = document.createElement('p');
             let newContent = document.createTextNode(text);
@@ -19,6 +20,7 @@ function answerGet(url){
             newElement.setAttribute("class","answerElement");
             // 指定した要素の中の末尾に挿入
             textboxElement.appendChild(newElement);
+            getAnswerData = text;
             answerCheck(text, "get");
         }
     }).catch(error => {
@@ -38,7 +40,7 @@ function answerPost(url) {
         method: 'POST',  // methodを指定しないとGETになる
         body: formData,  // Postで送るパラメータを指定
     })
-    .then(function() {  // Postした後に結果をGetする（コールバックなのでPostが実行完了してから実行される）
+    .then(function() {  // Postした後に結果をGetする
         answerGet('http://34.127.34.164/answerGet');
         console.log("Answer Post Success");
     }).catch(error => {
@@ -50,11 +52,11 @@ function answerCheck(userAnswer, dic){
     if(userAnswer === odai){
         if(dic === "post"){
             sumPoint();
-        }else{
-            dispOdai();
+            postFinish();
         }
-        postFinish();
-        finish();
+        dispOdai();
+        clearInterval(gameInterval);
+        setTimeout(finish(), 3000);
     }
 }
 
