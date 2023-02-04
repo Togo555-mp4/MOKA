@@ -23,16 +23,8 @@ function finish(){
     }
     // 要素削除
     let parent = document.getElementById('Area_Picture');
-    // let target
-    // if(whichUser === "gesture"){
-    //     target = document.getElementById('video');
-    // }else{
-    //     target = document.getElementById('viewImg');
-    // }
-    for (let i = parent.childNodes.length1; i>=0; i--) {
-        console.log(parent.childNodes[1]);
-        parent.removeChild(parent.childNodes[1]);
-    }
+    parent.innerHTML = "";
+    
     // 次のゲームを開始
     setTimeout(() => {
         console.log("nextGameStart")
