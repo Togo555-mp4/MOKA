@@ -4,7 +4,7 @@ let beforeSendSign = "NO";
 
 // 動画を写真にしたものを表示するcanvas要素
 const canvasSize = { w: 640, h: 480 };
-const dispImgSize = { w: 960, h: 540 };
+const dispImgSize = { w: 720, h: 540 };
 const canvas = document.createElement('canvas');
 canvas.id = 'canvas';
 canvas.width = canvasSize.w;
@@ -57,9 +57,9 @@ function pictureGet(){
             //画像オブジェクトを生成
             let img = new Image();
             img.src = "../static/img/after.jpg";
-            console.log(img);
             //画像をcanvasに設定
             img.onload = function(){
+                console.log("onload");
                 imgCtx.drawImage(img, 0, 0, dispImgSize.w, dispImgSize.h);
             }
         }
