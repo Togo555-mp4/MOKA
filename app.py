@@ -22,8 +22,6 @@ def hello():
 # 最初の画面
 @app.route("/index")
 def index():
-    global answerFirst
-    answerFirst = "NO"
     return render_template("index.html")
 
 # メインのゲーム画面(はじめジェスチャー側)

@@ -11,7 +11,6 @@ function answerGet(url){
         return response.text();
     })
     .then(function(text) {
-        console.log(text)
         if(text !== "data is none" & text !== getAnswerData){
             // 新しいHTML要素を作成
             let newElement = document.createElement('p');

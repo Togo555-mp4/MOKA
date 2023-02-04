@@ -50,6 +50,7 @@ function pictureGet(){
       return response.text();
     })
     .then(function(text) {
+        console.log(text)
         if(text === "OK"){
             // コンテキストを取得する
             imgCtx = viewImg.getContext('2d');
