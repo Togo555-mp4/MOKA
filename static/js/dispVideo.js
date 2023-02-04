@@ -4,6 +4,7 @@ let beforeSendSign = "NO";
 
 // 動画を写真にしたものを表示するcanvas要素
 const canvasSize = { w: 640, h: 480 };
+const dispImgSize = { w: 960, h: 540 };
 const canvas = document.createElement('canvas');
 canvas.id = 'canvas';
 canvas.width = canvasSize.w;
@@ -59,7 +60,7 @@ function pictureGet(){
             console.log(img);
             //画像をcanvasに設定
             img.onload = function(){
-                imgCtx.drawImage(img, 0, 0, 960, 540);
+                imgCtx.drawImage(img, 0, 0, dispImgSize.w, dispImgSize.h);
             }
         }
     });
@@ -88,7 +89,7 @@ function dispImg(){
     imgAria.id = 'imgAria';
     document.getElementById('Area_Picture').appendChild(imgAria);
     viewImg.id = 'viewImg';
-    viewImg.width = canvasSize.w;
-    viewImg.height = canvasSize.h;
+    viewImg.width = dispImgSize.w;
+    viewImg.height = dispImgSize.h;
     document.getElementById('imgAria').appendChild(viewImg);
 }
