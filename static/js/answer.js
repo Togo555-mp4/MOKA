@@ -53,7 +53,7 @@ function answerCheck(userAnswer, dic){
             sumPoint();
             postFinish();
         }else{
-            dispOdai();
+            dispOdai(odai);
             clearInterval(gameInterval);
             setTimeout(function(){finish()}, 10000);
         }
@@ -66,9 +66,9 @@ function sumPoint(){
     userPoint.textContent = newPoint;
 }
 
-function dispOdai(){
+function dispOdai(disptest){
     let odaiArea = document.getElementById('odaiAnswer');
-    odaiArea.textContent = odai;
+    odaiArea.textContent = disptest;
 }
 
 function getOdai(){
@@ -80,7 +80,9 @@ function getOdai(){
         odai = text;
         console.log(odai)
         if(whichUser == "gesture"){
-            dispOdai();
+            dispOdai(odai);
+        }else{
+            dispOdai("");
         }
     }).catch(error => {
         console.log(error.message)
