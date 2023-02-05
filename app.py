@@ -98,7 +98,7 @@ def answerGet():
         else:
             result = data[0][0]
         return result
-    elif(answerFirst == "NO"):
+    else:
         return "data is none"
 
 # 回答データのpost
