@@ -36,7 +36,7 @@ function finish(){
         console.log("nextGameStart")
         playerGet();
         gameActivity();
-    }, 10000);
+    }, 5000);
 }
 
 function gameActivity(){
@@ -51,7 +51,7 @@ function gameActivity(){
         }
         // 回答について
         answerGet('http://34.127.34.164/answerGet');
-    }, 1000);
+    }, 2000);
 }
 
 if(gameCome){

@@ -45,7 +45,7 @@ def finishPost():
     global answerFirst
     answerNum = random.randrange(11)
     answerFirst = "NO"
-    return "finish"
+    return "finish " + answerFirst + " answerNum:" + str(answerNum)
 
 # 表示画像のget
 @app.route("/pictureGet", methods=['GET'])
