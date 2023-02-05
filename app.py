@@ -45,7 +45,7 @@ def finishPost():
     global answerFirst
     answerNum = random.randrange(11)
     answerFirst = "NO"
-    return "finish " + answerFirst
+    return "finish"
 
 # 表示画像のget
 @app.route("/pictureGet", methods=['GET'])
@@ -118,7 +118,7 @@ def trueAnswer():
         result = "ans is none"
     else:
         result = ans[0][0]
-    return result + " " + str(answerNum)
+    return result
     
 # サーバ起動
 if __name__ == "__main__":

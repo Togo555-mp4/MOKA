@@ -17,15 +17,19 @@ function playerGet(){
 
 function finish(){
     gameCome = false;
+    // 回答データをリセット
+    getAnswerData = "ああああ";
+    // 要素削除
+    let parent = document.getElementById('Area_Picture');
+    parent.innerHTML = "";
+    textboxElement.innerHTML = "";
+
     // 次のゲームの準備
     if(whichUser === "gesture"){
         whichUser = "player";
     }else{
         whichUser = "gesture";
     }
-    // 要素削除
-    let parent = document.getElementById('Area_Picture');
-    parent.innerHTML = "";
     
     // 次のゲームを開始
     setTimeout(() => {
