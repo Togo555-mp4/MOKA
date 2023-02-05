@@ -40,8 +40,9 @@ function answerPost(url) {
         body: formData,  // Postで送るパラメータを指定
     })
     .then(function() {  // Postした後に結果をGetする
-        answerGet('http://34.127.34.164/answerGet');
         console.log("Answer Post Success");
+        answerForm.reset();
+        answerGet('http://34.127.34.164/answerGet');
     }).catch(error => {
         console.log(error.message)
     });
