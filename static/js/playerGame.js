@@ -53,7 +53,7 @@ function gameActivity(){
     // 回答について
     answerInterval = setInterval(() => {    
         answerGet('http://34.127.34.164/answerGet');
-    })
+    }, 1000)
 }
 
 if(gameCome){
