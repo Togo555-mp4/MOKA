@@ -41,17 +41,19 @@ function finish(){
 
 function gameActivity(){
     getOdai();
-    // 1秒ごとに行うもの
+    // 画面表示について
     gameInterval = setInterval(() => {
-        // 画面表示について
+        
         if(whichUser === "gesture"){
             picturePost();
         }else{
             pictureGet();
         }
-        // 回答について
-        answerGet('http://34.127.34.164/answerGet');
     }, 2000);
+    // 回答について
+    answerInterval = setInterval(() => {    
+        answerGet('http://34.127.34.164/answerGet');
+    })
 }
 
 if(gameCome){

@@ -56,6 +56,7 @@ function answerCheck(userAnswer, dic){
         }else{
             dispOdai(odai);
             clearInterval(gameInterval);
+            clearInterval(answerInterval);
             setTimeout(function(){finish()}, 10000);
         }
     }

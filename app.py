@@ -90,6 +90,7 @@ def sendOkPost():
 # 回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
 def answerGet():
+    global answerFirst
     if(answerFirst == "OK"):
         data = connect_Maria.getMariadb("SELECT comment from answers where comid=(select MAX(comid) from answers);")
         if data is None:
@@ -97,7 +98,7 @@ def answerGet():
         else:
             result = data[0][0]
         return result
-    else:
+    elif(answerFirst == "NO"):
         return "data is none"
 
 # 回答データのpost
