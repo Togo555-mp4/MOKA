@@ -55,9 +55,6 @@ function answerCheck(userAnswer, dic){
             sumPoint();
         }else{
             dispOdai(odai);
-            if(whichUser == "player"){
-                postFinish();
-            }
             clearInterval(gameInterval);
             clearInterval(answerInterval);
             setTimeout(function(){finish()}, 10000);

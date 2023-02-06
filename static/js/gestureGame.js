@@ -16,6 +16,9 @@ function playerGet(){
 }
 
 function finish(){
+    if(whichUser == "player"){
+        postFinish();
+    }
     gameCome = false;
     // 回答データをリセット
     getAnswerData = "ああああ";
