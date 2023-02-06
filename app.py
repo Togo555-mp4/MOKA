@@ -37,6 +37,7 @@ def playerGame():
 def finishPost():
     global answerNum
     connect_Maria.postMariadb("DELETE FROM answers")
+    connect_Maria.postMariadb("INSERT INTO answers (userid, comment) VALUES(1, 'data is none');")
     answerNum = random.randrange(11)
     return "finish"
 
@@ -87,7 +88,7 @@ def answerGet():
     if data is None:
         result = "data is none"
     else:
-        result = data[0]
+        result = data[0][0]
     return result
 
 # 回答データのpost
