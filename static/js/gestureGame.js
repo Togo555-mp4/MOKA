@@ -43,7 +43,6 @@ function gameActivity(){
     getOdai();
     // 画面表示について
     gameInterval = setInterval(() => {
-        
         if(whichUser === "gesture"){
             picturePost();
         }else{

@@ -97,9 +97,9 @@ def answerGet():
             result = "data is none"
         else:
             result = data[0][0]
-        return result
     else:
-        return "data is none"
+        result = "data is none"
+    return result
 
 # 回答データのpost
 @app.route('/answerPost', methods=['POST'])
