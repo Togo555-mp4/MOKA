@@ -11,8 +11,6 @@ app = Flask(__name__)
 answerNum = random.randrange(11)
 # 画像の送信許可
 sendOK = "NO"
-# 回答の送信許可
-answerFirst = "NO"
 
 #「/」へアクセスがあった場合に、"Hello World"の文字列を返す
 @app.route("/")
@@ -27,25 +25,20 @@ def index():
 # メインのゲーム画面(はじめジェスチャー側)
 @app.route("/gestureGame")
 def gestureGame():
-    global answerFirst
-    answerFirst = "NO"
     return render_template("gestureView.html")
 
 # メインのゲーム画面(はじめ回答者側)
 @app.route("/playerGame")
 def playerGame():
-    global answerFirst
-    answerFirst = "NO"
     return render_template("playerView.html")
 
 #ゲームの終了post
 @app.route("/finishPost", methods=['POST'])
 def finishPost():
     global answerNum
-    global answerFirst
+    connect_Maria.postMariadb("DELETE FROM answers")
     answerNum = random.randrange(11)
-    answerFirst = "NO"
-    return "finish " + answerFirst + " answerNum:" + str(answerNum)
+    return "finish"
 
 # 表示画像のget
 @app.route("/pictureGet", methods=['GET'])
@@ -90,24 +83,18 @@ def sendOkPost():
 # 回答データのget
 @app.route('/answerGet', methods=['GET'])  # Getだけ受け付ける
 def answerGet():
-    global answerFirst
-    if(answerFirst == "OK"):
-        data = connect_Maria.getMariadb("SELECT comment from answers where comid=(select MAX(comid) from answers);")
-        if data is None:
-            result = "data is none"
-        else:
-            result = data[0][0]
-    else:
+    data = connect_Maria.getMariadb("SELECT comment from answers where comid=(select MAX(comid) from answers);")
+    if data is None:
         result = "data is none"
+    else:
+        result = data[0][0]
     return result
 
 # 回答データのpost
 @app.route('/answerPost', methods=['POST'])
 def answerPost():
-    global answerFirst
     answer = request.form['answer']
     connect_Maria.postMariadb("INSERT INTO answers (userid, comment) VALUES(1, '" + answer + "');")
-    answerFirst = "OK"
     return answer
 
 # 正解データのget
