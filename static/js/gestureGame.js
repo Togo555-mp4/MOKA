@@ -58,11 +58,6 @@ function gameActivity(){
     }, 1000)
 }
 
-if(gameCome){
-    playerGet();
-    gameActivity();
-}
-
 function postFinish(){
     fetch("http://34.127.34.164/finishPost", {
         method: 'POST',
@@ -76,14 +71,14 @@ function postFinish(){
     });
 }
 
-// function getFinish(){
-//     fetch("http://34.127.34.164/finishGet", {
-//     }).then(function(response) {
-//         return response.text();
-//     }).then(function(text) {
-//         console.log(text);
-//         finish();
-//     }).catch(error => {
-//         console.log(error.message);
-//     });
-// }
+document.onkeypress = function(e) {
+    // エンターキーだったら無効にする
+    if (e.key === 'Enter') {
+      return false;
+    }
+}
+
+if(gameCome){
+    playerGet();
+    gameActivity();
+}
